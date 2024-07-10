@@ -14,7 +14,7 @@ namespace Services
         //Ta cần khai báo biến Repo
         private CategoryRepository _repo = new();
 
-        public List<BookCategory> GetAllCatrgories()
+        public List<BookCategory> GetALlCatrgories()
         {
             return _repo.GetAll();
             //expression bodied
