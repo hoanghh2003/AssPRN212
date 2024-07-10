@@ -1,0 +1,41 @@
+﻿<Window x:Name="BookMainWindow" x:Class="BookManagement_HoangNgocTrinh.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookManagement_HoangNgocTrinh"
+        mc:Ignorable="d"
+        Title="Book Manager - ver.24-SU" Height="685" Width="1220" Background="#ff2800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="BookMainWindow_Loaded" >
+    <Grid>
+        <Label Content="Book Manager" HorizontalAlignment="Left" Height="80" Margin="31,20,0,0" VerticalAlignment="Top" Width="520" FontWeight="Heavy" FontSize="50"/>
+        <Label Content="ver. 24-SU" HorizontalAlignment="Left" Height="50" Margin="432,40,0,0" VerticalAlignment="Top" Width="275" FontSize="30"/>
+        <Label Content="Book List" HorizontalAlignment="Left" Height="55" Margin="35,274,0,0" VerticalAlignment="Top" Width="165"/>
+        <DataGrid x:Name="BookListDataGrid" HorizontalAlignment="Left" Height="289" Margin="39,320,0,0" VerticalAlignment="Top" Width="956" AutoGenerateColumns="False" TabIndex="3" HorizontalScrollBarVisibility="Auto" FontSize="18">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding BookId}" Width="30" />
+                <DataGridTextColumn Header="Book Name" Binding="{Binding BookName}" Width="180" />
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="200" />
+                <DataGridTextColumn Header="Publication Date" Binding="{Binding PublicationDate}" Width="70" />
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="70" />
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="30" />
+                <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="120" />
+                <DataGridTextColumn Header="Category ID" Binding="{Binding BookCategoryId}" Width="70" />
+                <DataGridTextColumn Header="Category Name" Binding="{Binding BookCategory.BookGenreType}" Width="70" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Rectangle HorizontalAlignment="Left" Height="95" Margin="39,144,0,0" Stroke="Black" VerticalAlignment="Top" Width="1145" Fill="#ffff00"/>
+        <Label Content="Book Name" HorizontalAlignment="Left" Height="45" Margin="73,174,0,0" VerticalAlignment="Top" Width="107" Foreground="#ff4500"/>
+        <TextBox x:Name="BookNameTextBox" HorizontalAlignment="Left" Height="45" Margin="193,170,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" TabIndex="0" TextChanged="BookNameTextBox_TextChanged"/>
+        <Label Content="Book Desc" HorizontalAlignment="Left" Height="45" Margin="514,174,0,0" VerticalAlignment="Top" Width="107" Foreground="#ff4500"/>
+        <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="45" Margin="628,170,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" TabIndex="1" TextChanged="DescriptionTextBox_TextChanged"/>
+        <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Left" Height="50" Margin="989,166,0,0" VerticalAlignment="Top" Width="165" TabIndex="2" Click="SearchButton_Click"/>
+
+        <Button x:Name="CreateButton" Content="Create Book" HorizontalAlignment="Left" Height="50" Margin="1019,319,0,0" VerticalAlignment="Top" Width="165" TabIndex="4" Style="{StaticResource ButtonYellow}" Click="CreateBookButton_Click" />
+
+        <Button x:Name="UpdateButton" Content="Update Book" HorizontalAlignment="Left" Height="50" Margin="1019,389,0,0" VerticalAlignment="Top" Width="165" TabIndex="5" Style="{StaticResource ButtonYellow}" Click="UpdateButton_Click"/>
+        <Button x:Name="DeleteButton" Content="Delete Book" HorizontalAlignment="Left" Height="50" Margin="1019,461,0,0" VerticalAlignment="Top" Width="165" TabIndex="6" Style="{StaticResource ButtonYellow}" Click="DeleteButton_Click" />
+        <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="50" Margin="1019,559,0,0" VerticalAlignment="Top" Width="165" TabIndex="7" Style="{StaticResource ButtonYellow}" Click="QuitButton_Click" />
+        <Label Content="© 2024 giáo.làng" HorizontalAlignment="Left" Height="45" Margin="34,611,0,0" VerticalAlignment="Top" Width="182" Foreground="#ffff00"/>
+
+    </Grid>
+</Window>

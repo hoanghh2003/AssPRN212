@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace AppVeAnh
+namespace BookManagement_HoangNgocTrinh
 {
     /// <summary>
     /// Interaction logic for App.xaml

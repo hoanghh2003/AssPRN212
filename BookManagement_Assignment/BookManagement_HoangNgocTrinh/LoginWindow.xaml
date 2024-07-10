@@ -1,0 +1,21 @@
+﻿<Window x:Class="BookManagement_HoangNgocTrinh.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookManagement_HoangNgocTrinh"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="515" Width="850" Background="#ff2800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Margin="-13,0,13,0">
+        <Rectangle HorizontalAlignment="Left" Height="354" Stroke="Black" VerticalAlignment="Top" Width="574" Fill="#ffff00" RadiusX="20" RadiusY="20" Margin="151,42,0,0"/>
+        <Label Content="Login" HorizontalAlignment="Left" Height="60" Margin="323,49,0,0" VerticalAlignment="Top" Width="230" FontWeight="ExtraBold" FontSize="40" Foreground="#ff4500" HorizontalContentAlignment="Center"/>
+        <Label Content="Email" HorizontalAlignment="Left" Height="45" Margin="196,157,0,0" VerticalAlignment="Top" Width="107" Foreground="#ff4500"/>
+        <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Height="45" Margin="301,154,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="375" TabIndex="0" TextChanged="EmailTextBox_TextChanged"/>
+        <Label Content="Password" HorizontalAlignment="Left" Height="45" Margin="196,0,0,0" VerticalAlignment="Center" Width="107" Foreground="#ff4500"/>
+        <TextBox x:Name="PasswordTextBox" HorizontalAlignment="Left" Height="45" Margin="301,225,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="375" TabIndex="1"/>
+        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Height="55" Margin="196,311,0,0" VerticalAlignment="Top" Width="230" TabIndex="2" Click="LoginButton_Click"/>
+        <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="55" Margin="446,311,0,0" VerticalAlignment="Top" Width="230" TabIndex="3" Click="QuitButton_Click"/>
+        <Label Content="© 2024 giáo.làng" HorizontalAlignment="Left" Height="45" Margin="351,428,0,0" VerticalAlignment="Top" Width="182" Foreground="#ffff00"/>
+
+    </Grid>
+</Window>
