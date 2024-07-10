@@ -43,11 +43,11 @@ ManageBook is a book management application designed to help users easily manage
 - **IDE**: Visual Studio
 
 ## Team Member Assignment Table
-| Team Member | Role |
-|-------------|------------|
-| Hà Huy Hoàng | Leader |
-| Lê Xuân Phương Nam | Member |
-| Nguyễn Bá Minh Đức | Member |
-| Hoàng	Minh	Đại | Member |
-| Nguyễn Trần Khánh Hà | Member |
-| Phạm Quốc Quyền | Member |
+| Team Member | Role | Task Assignments |
+|-------------|------------|------------|
+| Hà Huy Hoàng | Leader |------------|
+| Lê Xuân Phương Nam | Member |------------|
+| Nguyễn Bá Minh Đức | Member |------------|
+| Hoàng	Minh	Đại | Member |------------|
+| Nguyễn Trần Khánh Hà | Member |------------|
+| Phạm Quốc Quyền | Member |------------|
