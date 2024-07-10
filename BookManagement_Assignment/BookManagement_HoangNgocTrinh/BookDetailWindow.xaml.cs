@@ -1,34 +1,31 @@
 ﻿using Repository.Entities;
 using Services;
 using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace BookManagement_HoangNgocTrinh
 {
-    /// <summary>
-    /// Interaction logic for BookDetailWindow.xaml
-    /// </summary>
     public partial class BookDetailWindow : Window
     {
         private CategoryService _cateservice = new();
         private BookService _bookService = new();
         private int _bookId;
-        private int _userRole; // Add a user role variable
+        private int _userRole;
 
         public Book SelectedBook { get; set; } = null;
 
-        public BookDetailWindow(int bookId = 0, int userRole = 1) // Add userRole parameter
+        public BookDetailWindow(int bookId = 0, int userRole = 1)
         {
             InitializeComponent();
             _bookService = new BookService();
             _bookId = bookId;
-            _userRole = userRole; // Initialize the user role
+            _userRole = userRole;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // Load data into comboBox
             BookCategoryIdComboBox.ItemsSource = _cateservice.GetALlCatrgories();
             BookCategoryIdComboBox.DisplayMemberPath = "BookGenreType";
             BookCategoryIdComboBox.SelectedValuePath = "BookCategoryId";
@@ -65,23 +62,23 @@ namespace BookManagement_HoangNgocTrinh
             }
 
             // Validate BookName
-            if (string.IsNullOrWhiteSpace(BookNameTextBox.Text))
+            if (string.IsNullOrWhiteSpace(BookNameTextBox.Text) || BookNameTextBox.Text.Length < 5 || BookNameTextBox.Text.Length > 90 || !IsTitleCase(BookNameTextBox.Text))
             {
-                MessageBox.Show("Book Name cannot be empty.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Book Name must be between 5 and 90 characters, and each word must begin with a capital letter.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
             // Validate Quantity
-            if (!int.TryParse(QuantityTextBox.Text, out int quantity) || quantity <= 0 || quantity >= 4_000_000)
+            if (!int.TryParse(QuantityTextBox.Text, out int quantity) || quantity < 0 || quantity >= 4_000_000)
             {
-                MessageBox.Show("Please enter a valid quantity.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Please enter a valid quantity (0 <= quantity < 4,000,000).", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
             // Validate Price
-            if (!double.TryParse(PriceTextBox.Text, out double price) || price < 0)
+            if (!double.TryParse(PriceTextBox.Text, out double price) || price < 0 || price >= 4_000_000)
             {
-                MessageBox.Show("Please enter a valid price.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Please enter a valid price (0 <= price < 4,000,000).", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -110,11 +107,11 @@ namespace BookManagement_HoangNgocTrinh
             {
                 if (SelectedBook != null)
                 {
-                    _bookService.UpdateBook(x, _userRole); // Pass the user role
+                    _bookService.UpdateBook(x, _userRole);
                 }
                 else
                 {
-                    _bookService.AddBook(x, _userRole); // Pass the user role
+                    _bookService.AddBook(x, _userRole);
                 }
 
                 DialogResult = true;
@@ -130,6 +127,19 @@ namespace BookManagement_HoangNgocTrinh
         {
             DialogResult = false;
             this.Close();
+        }
+
+        private bool IsTitleCase(string str)
+        {
+            var words = str.Split(' ');
+            foreach (var word in words)
+            {
+                if (char.IsLower(word[0]))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

@@ -5,23 +5,26 @@ using System.Windows.Controls;
 
 namespace BookManagement_HoangNgocTrinh
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private BookService _service = new();
-        private int _userRole; // Add a user role variable
+        private int _userRole;
 
         public MainWindow(int userRole)
         {
             InitializeComponent();
-            _userRole = userRole; // Initialize the user role
+            _userRole = userRole;
             LoadGrid();
         }
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
+            if (_userRole != 1) // Check if the user is not an Administrator
+            {
+                MessageBox.Show("You do not have permission to update books.", "Permission Denied", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             Book selected = BookListDataGrid.SelectedItem as Book;
             if (selected == null)
             {
@@ -76,6 +79,12 @@ namespace BookManagement_HoangNgocTrinh
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
+            if (_userRole != 1) // Check if the user is not an Administrator
+            {
+                MessageBox.Show("You do not have permission to delete books.", "Permission Denied", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             Book selected = BookListDataGrid.SelectedItem as Book;
 
             if (selected == null)

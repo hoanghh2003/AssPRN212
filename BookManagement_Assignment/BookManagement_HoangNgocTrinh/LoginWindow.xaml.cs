@@ -1,12 +1,8 @@
 ﻿using Services;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace BookManagement_HoangNgocTrinh
 {
-    /// <summary>
-    /// Interaction logic for LoginWindow.xaml
-    /// </summary>
     public partial class LoginWindow : Window
     {
         private UserService _userService;
@@ -39,11 +35,6 @@ namespace BookManagement_HoangNgocTrinh
         private void QuitButton_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
-        }
-
-        private void EmailTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }
