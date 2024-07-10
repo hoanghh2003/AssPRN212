@@ -1,17 +1,8 @@
 ﻿using Services;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-
 using Repository.Entities;
+using System.Windows.Controls;
+
 namespace BookManagement_HoangNgocTrinh
 {
     /// <summary>
@@ -19,73 +10,58 @@ namespace BookManagement_HoangNgocTrinh
     /// </summary>
     public partial class MainWindow : Window
     {
-        //Gui gọi service - Repo - DBContext -> DataBase
         private BookService _service = new();
-       
-        public MainWindow()
+        private int _userRole; // Add a user role variable
+
+        public MainWindow(int userRole)
         {
             InitializeComponent();
+            _userRole = userRole; // Initialize the user role
             LoadGrid();
         }
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
             Book selected = BookListDataGrid.SelectedItem as Book;
-            //ráng convert thử 1 dòng trong grid thành book
-            // nhưng có thẻ kh tành công , thì gán null, toán tửu as kĩ thuật ép
-            // kiểu an toàn kh exception
-
-            // Book selected = (Book) BookListDataGrid.SelectedItem;
-            //if (selected != null)
-            //{
-            //    MessageBox.Show(selected.BookId + " | " + selected.BookName);
-            //}
             if (selected == null)
             {
                 MessageBox.Show("Please select a book before editing", "Select one", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            BookDetailWindow detail = new();
+            BookDetailWindow detail = new BookDetailWindow(selected.BookId, _userRole); // Pass the role
             detail.SelectedBook = selected;
-            detail.ShowDialog(); //bên details load sách vào các ô
+            detail.ShowDialog();
             LoadGrid();
-
-
         }
 
         private void BookMainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            //Hàm này sẽ được gọi mỗi khi hàm đc new , được render
-            //Đổ vào Guid để đỡ phải nhấn nút
-            //Đổ vào grid sẽ xuất hiển nhiều lần
-            //Mở màn hinhd , thêm mới 1 cuốn sahcs đổ lại lưới
             LoadGrid();
         }
 
         private void LoadGrid()
         {
-            BookListDataGrid.ItemsSource = null; //Xóa trắng list, Không lấy nguồn data nào
-            
-            BookListDataGrid.ItemsSource = _service.GetBooks();
-
+            BookListDataGrid.ItemsSource = null;
+            BookListDataGrid.ItemsSource = _service.GetBooks(_userRole);
         }
 
         private void CreateBookButton_Click(object sender, RoutedEventArgs e)
         {
-            BookDetailWindow detail = new();
+            BookDetailWindow detail = new BookDetailWindow(0, _userRole); // Pass the role
             detail.ShowDialog();
             if (detail.DialogResult == true)
             {
                 LoadGrid();
             }
-            //F5 lại DataGrid
             else
-                MessageBox.Show("Bạn đã nhấn Cancel");
+            {
+                MessageBox.Show("You have pressed Cancel");
+            }
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-           PerformSearch();
+            PerformSearch();
         }
 
         private void DescriptionTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -95,16 +71,16 @@ namespace BookManagement_HoangNgocTrinh
 
         private void BookNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            PerformSearch() ;
+            PerformSearch();
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             Book selected = BookListDataGrid.SelectedItem as Book;
 
-            if (selected == null) 
+            if (selected == null)
             {
-                MessageBox.Show("Please select book before deleting", "Select one", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Please select a book before deleting", "Select one", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             MessageBoxResult result = MessageBox.Show("Do you really want to DELETE?", "Delete", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -112,7 +88,7 @@ namespace BookManagement_HoangNgocTrinh
             {
                 return;
             }
-            _service.DeleteBook(selected);
+            _service.DeleteBook(selected, _userRole); // Pass the role
             LoadGrid();
         }
 
@@ -120,15 +96,15 @@ namespace BookManagement_HoangNgocTrinh
         {
             string name = BookNameTextBox.Text;
             string des = DescriptionTextBox.Text;
-            var filter = _service.SearchBook(name, des);
+            var filter = _service.SearchBooks(name, des, _userRole); // Pass the role
             BookListDataGrid.ItemsSource = filter;
         }
 
         private void QuitButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Do you really want to quit?", "Quit", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if(result == MessageBoxResult.Yes)
-            Application.Current.Shutdown();
+            if (result == MessageBoxResult.Yes)
+                Application.Current.Shutdown();
         }
     }
 }

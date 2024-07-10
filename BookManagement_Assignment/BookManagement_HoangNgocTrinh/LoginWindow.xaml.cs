@@ -1,17 +1,6 @@
 ﻿using Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace BookManagement_HoangNgocTrinh
 {
@@ -20,8 +9,8 @@ namespace BookManagement_HoangNgocTrinh
     /// </summary>
     public partial class LoginWindow : Window
     {
-
         private UserService _userService;
+
         public LoginWindow()
         {
             InitializeComponent();
@@ -33,17 +22,17 @@ namespace BookManagement_HoangNgocTrinh
             string email = EmailTextBox.Text;
             string password = PasswordTextBox.Text;
 
-            if (_userService.CheckUser(email, password))
+            if (_userService.CheckUser(email, password, out int role))
             {
-                MessageBox.Show("Login SuccessFul !!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Login Successful !!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                MainWindow mainWindow = new MainWindow();
+                MainWindow mainWindow = new MainWindow(role); // Pass the role to MainWindow
                 mainWindow.Show();
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Invalid Email or Password ", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Invalid Email or Password", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

@@ -1,59 +1,106 @@
 ﻿using Repository.Entities;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Services
 {
     public class BookService
     {
-        //Gui -> Service -> Repository                     -> DBContext -> DATAbase
-        //                           CRUD trực tiếp table       Danh sách các table 3 cái DbSet
-        //       Gọi CRUD để đẩy ên UI
-        //       Nhận info từ UI đẩy xuống Repo
+        private readonly BookRepository _book = new BookRepository();
+        private readonly UserService _userService = new UserService();
 
-        //tên method thường dễ hiểu , gần với user
-        // cần bookRepo để thao tác cơ sở dữ liệu
-        private BookRepository  _book = new BookRepository();
-        public List<Book> GetBooks()
+        public List<Book> GetBooks(int role)
         {
-            return _book.GetBooks();
-        }
-
-        public  void AddBook(Book x)
-        {
-            _book.Create(x);
-        }
-
-        public void UpdateBook(Book x)
-        {
-            _book.Update(x);
-        }
-        public Book GetBookId(int id)
-        {
-            return _book.GetBookByID(id);
-        }
-
-        public void SaveBook(Book book)
-        {
-            if (book.BookId == 0)
+            if (_userService.CanView(role))
             {
-                // Sách mới
-                book.BookId = _book.GetBooks().Max(b => b.BookId) + 1;
-                _book.AddBook(book);
+                return _book.GetBooks();
             }
             else
             {
-                // Cập nhật sách
-                _book.Update(book);
+                throw new UnauthorizedAccessException("You do not have permission to view books.");
             }
         }
 
-        public void DeleteBook(Book x)
+        public void AddBook(Book book, int role)
         {
-            _book.Delete(x);
+            if (_userService.CanCreate(role))
+            {
+                _book.Create(book);
+            }
+            else
+            {
+                throw new UnauthorizedAccessException("You do not have permission to add books.");
+            }
         }
 
-        public List<Book> SearchBook(string name, string description)
+        public void UpdateBook(Book book, int role)
         {
-            return _book.Search(name, description);
+            if (_userService.CanEdit(role))
+            {
+                _book.Update(book);
+            }
+            else
+            {
+                throw new UnauthorizedAccessException("You do not have permission to update books.");
+            }
+        }
+
+        public Book GetBookById(int id, int role)
+        {
+            if (_userService.CanView(role))
+            {
+                return _book.GetBookByID(id);
+            }
+            else
+            {
+                throw new UnauthorizedAccessException("You do not have permission to view this book.");
+            }
+        }
+
+        public void SaveBook(Book book, int role)
+        {
+            if (_userService.CanCreate(role) || (_userService.CanEdit(role) && book.BookId != 0))
+            {
+                if (book.BookId == 0)
+                {
+                    // New book
+                    book.BookId = _book.GetBooks().Max(b => b.BookId) + 1;
+                    _book.AddBook(book);
+                }
+                else
+                {
+                    // Update book
+                    _book.Update(book);
+                }
+            }
+            else
+            {
+                throw new UnauthorizedAccessException("You do not have permission to save books.");
+            }
+        }
+
+        public void DeleteBook(Book book, int role)
+        {
+            if (_userService.CanDelete(role))
+            {
+                _book.Delete(book);
+            }
+            else
+            {
+                throw new UnauthorizedAccessException("You do not have permission to delete books.");
+            }
+        }
+
+        public List<Book> SearchBooks(string name, string description, int role)
+        {
+            if (_userService.CanSearch(role))
+            {
+                return _book.Search(name, description);
+            }
+            else
+            {
+                throw new UnauthorizedAccessException("You do not have permission to search books.");
+            }
         }
     }
 }

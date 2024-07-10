@@ -1,19 +1,8 @@
 ﻿using Repository.Entities;
 using Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace BookManagement_HoangNgocTrinh
 {
@@ -22,41 +11,34 @@ namespace BookManagement_HoangNgocTrinh
     /// </summary>
     public partial class BookDetailWindow : Window
     {
-
         private CategoryService _cateservice = new();
         private BookService _bookService = new();
-        private int _bookId = new();
+        private int _bookId;
+        private int _userRole; // Add a user role variable
 
         public Book SelectedBook { get; set; } = null;
-        public BookDetailWindow(int bookId = 0)
+
+        public BookDetailWindow(int bookId = 0, int userRole = 1) // Add userRole parameter
         {
             InitializeComponent();
             _bookService = new BookService();
             _bookId = bookId;
+            _userRole = userRole; // Initialize the user role
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //Đổ data vào combo Box bất chấp tạo mới hayedit, Xài có 1 lần việc đổ, ko cần tách hàm
-            //Dĩ nhiê cần gọi CategoryService trợ giúp
+            // Load data into comboBox
             BookCategoryIdComboBox.ItemsSource = _cateservice.GetALlCatrgories();
             BookCategoryIdComboBox.DisplayMemberPath = "BookGenreType";
             BookCategoryIdComboBox.SelectedValuePath = "BookCategoryId";
-
 
             BookCategoryIdComboBox.SelectedValue = 1;
             WindowModeLabel.Content = "Create A New Book";
             if (SelectedBook != null)
             {
                 WindowModeLabel.Content = "Update A Book";
-                BookIdTextBox.Text = SelectedBook.BookId.ToString();
-                BookNameTextBox.Text = SelectedBook.BookName.ToString();
-                DescriptionTextBox.Text = SelectedBook.Description.ToString();
-                PublicationDateDatePicker.Text = SelectedBook.PublicationDate.ToString();
-                QuantityTextBox.Text = SelectedBook.Quantity.ToString();
-                PriceTextBox.Text = SelectedBook.Price.ToString();
-                AuthorTextBox.Text = SelectedBook.Author.ToString();
-                BookCategoryIdComboBox.SelectedValue = SelectedBook.BookCategoryId.ToString();
+                PopulateBookDetails(SelectedBook);
                 BookIdTextBox.IsEnabled = false;
             }
         }
@@ -124,24 +106,30 @@ namespace BookManagement_HoangNgocTrinh
             };
 
             // Add or update the book
-            if (SelectedBook != null)
+            try
             {
-                _bookService.UpdateBook(x);
-            }
-            else
-            {
-                _bookService.AddBook(x);
-            }
+                if (SelectedBook != null)
+                {
+                    _bookService.UpdateBook(x, _userRole); // Pass the user role
+                }
+                else
+                {
+                    _bookService.AddBook(x, _userRole); // Pass the user role
+                }
 
-            DialogResult = true;
-            this.Close();
+                DialogResult = true;
+                this.Close();
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show(ex.Message, "Permission Denied", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
             this.Close();
-
         }
     }
 }
