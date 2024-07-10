@@ -5,6 +5,9 @@ using System.Windows.Controls;
 
 namespace BookManagement_HoangNgocTrinh
 {
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
     public partial class MainWindow : Window
     {
         private BookService _service = new();
@@ -19,7 +22,7 @@ namespace BookManagement_HoangNgocTrinh
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            if (_userRole != 1) // Check if the user is not an Administrator
+            if (_userRole != 1 && _userRole != 2) // Only Admin and Staff can update
             {
                 MessageBox.Show("You do not have permission to update books.", "Permission Denied", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
@@ -50,6 +53,12 @@ namespace BookManagement_HoangNgocTrinh
 
         private void CreateBookButton_Click(object sender, RoutedEventArgs e)
         {
+            if (_userRole != 1 && _userRole != 2) // Only Admin and Staff can create
+            {
+                MessageBox.Show("You do not have permission to create books.", "Permission Denied", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             BookDetailWindow detail = new BookDetailWindow(0, _userRole); // Pass the role
             detail.ShowDialog();
             if (detail.DialogResult == true)
@@ -79,7 +88,7 @@ namespace BookManagement_HoangNgocTrinh
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            if (_userRole != 1) // Check if the user is not an Administrator
+            if (_userRole != 1) // Only Admin can delete
             {
                 MessageBox.Show("You do not have permission to delete books.", "Permission Denied", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;

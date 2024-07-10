@@ -40,7 +40,7 @@ namespace Services
 
         public bool CanDelete(int role)
         {
-            return role == 1; // Only Admin/Manager can delete
+            return role == 1;
         }
 
         public bool CanView(int role)
