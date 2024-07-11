@@ -70,7 +70,7 @@ namespace Repository.Entities
             _context = new();
             return _context.Books.Where(b =>
             ( string.IsNullOrEmpty(name) || b.BookName.ToUpper().Contains(name.ToUpper())) && 
-            (string.IsNullOrEmpty(description) || b.Description.ToUpper().Contains(description.ToUpper())))
+            (string.IsNullOrEmpty(description) || b.Description.ToUpper().Contains(description.ToUpper()))).Include("BookCategory")
                 .ToList();
         }
 
