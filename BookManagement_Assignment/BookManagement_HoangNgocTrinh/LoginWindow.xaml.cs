@@ -1,4 +1,6 @@
-﻿using Services;
+﻿using Microsoft.Identity.Client.NativeInterop;
+using Microsoft.VisualBasic.ApplicationServices;
+using Services;
 using System.Windows;
 
 namespace BookManagement_HoangNgocTrinh
@@ -20,11 +22,15 @@ namespace BookManagement_HoangNgocTrinh
 
             if (_userService.CheckUser(email, password, out int role))
             {
-                MessageBox.Show("Login Successful !!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                if (role != 3)
+                {
+                    MessageBox.Show("Login Successful !!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                MainWindow mainWindow = new MainWindow(role); // Pass the role to MainWindow
-                mainWindow.Show();
-                this.Close();
+                    MainWindow mainWindow = new MainWindow(role); // Pass the role to MainWindow
+                    mainWindow.Show();
+                    this.Close();
+                }else MessageBox.Show("You have no permission to acccess this function", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+
             }
             else
             {

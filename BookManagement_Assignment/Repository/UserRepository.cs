@@ -12,10 +12,10 @@ namespace Repository
         private List<UserAccount> users;
         private BookManagementDbContext _context;
 
-        public UserAccount GetUserByEmail(string email)
+        public UserAccount GetUserByEmail(string email, string password)
         {
             _context = new BookManagementDbContext();
-            return _context.UserAccounts.FirstOrDefault(b => b.Email == email);
+            return _context.UserAccounts.FirstOrDefault(b => b.Email == email && b.Password == password);
         }
     }
 }

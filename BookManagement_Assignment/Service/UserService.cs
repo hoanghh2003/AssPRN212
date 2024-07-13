@@ -18,8 +18,8 @@ namespace Services
 
         public bool CheckUser(string email, string password, out int role)
         {
-            var user = _repository.GetUserByEmail(email);
-            if (user != null && user.Password == password)
+            var user = _repository.GetUserByEmail(email, password);
+            if (user != null)
             {
                 role = user.Role;
                 return true;
@@ -30,12 +30,12 @@ namespace Services
 
         public bool CanCreate(int role)
         {
-            return role == 1 || role == 2;
+            return role == 1;
         }
 
         public bool CanEdit(int role)
         {
-            return role == 1 || role == 2;
+            return role == 1;
         }
 
         public bool CanDelete(int role)
@@ -45,12 +45,12 @@ namespace Services
 
         public bool CanView(int role)
         {
-            return role == 1 || role == 2 || role == 3;
+            return role == 1 || role == 2;
         }
 
         public bool CanSearch(int role)
         {
-            return role == 1 || role == 2 || role == 3;
+            return role == 1 || role == 2;
         }
     }
 }
