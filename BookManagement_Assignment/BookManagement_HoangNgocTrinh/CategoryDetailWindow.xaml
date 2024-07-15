@@ -1,0 +1,28 @@
+﻿<Window x:Name="CategoryDetailWindow1" x:Class="BookManagement_HoangNgocTrinh.CategoryDetailWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookManagement_HoangNgocTrinh"
+        mc:Ignorable="d"
+        Title="CategoryDetailWindow" Height="450" Width="800" Background="Aqua" Loaded="CategoryDetailWindow1_Loaded">
+    <Grid>
+        <TextBox x:Name="BookGenreTypeTextBox" HorizontalAlignment="Left" Height="37" Margin="126,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226"/>
+        <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="31" Margin="126,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226"/>
+        <Label Content="GenreType" HorizontalAlignment="Left" Height="37" Margin="10,68,0,0" VerticalAlignment="Top" Width="111" Background="#FFA7BB15"/>
+        <Label Content="Description" HorizontalAlignment="Left" Height="31" Margin="10,110,0,0" VerticalAlignment="Top" Width="111" Background="#FFA0A944"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Height="35" Margin="677,358,0,0" VerticalAlignment="Top" Width="113" Click="CancelButton_Click"/>
+        <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Height="35" Margin="677,0,0,0" VerticalAlignment="Center" Width="113" Click="SaveButton_Click"/>
+        <DataGrid x:Name="BookCategoryListDataGrid" HorizontalAlignment="Left" Height="207" Margin="10,186,0,0" VerticalAlignment="Top" Width="662" SelectionChanged="BookCategoryListDataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding BookCategoryId}" Width="30" />
+                <DataGridTextColumn Header="BookGenreType" Binding="{Binding BookGenreType}" Width="300" />
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="200" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="UpdateButton" Content="Update"  HorizontalAlignment="Left" Height="29" Margin="678,324,0,0" VerticalAlignment="Top" Width="112" Click="UpdateButton_Click" RenderTransformOrigin="0.201,1.534"/>
+        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Height="42" Margin="678,277,0,0" VerticalAlignment="Top" Width="112" Click="DeleteButton_Click"/>
+        <Label x:Name="BookCategoryLabel" Content="BookCategory" Background="Black" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Height="37" Margin="0,10,0,0" VerticalAlignment="Top" Width="208"/>
+        <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Left" Height="33" Margin="678,239,0,0" VerticalAlignment="Top" Width="112" Click="SearchButton_Click" RenderTransformOrigin="0.277,0.5"/>
+    </Grid>
+</Window>

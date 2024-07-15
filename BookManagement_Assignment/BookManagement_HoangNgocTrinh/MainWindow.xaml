@@ -35,7 +35,9 @@
         <Button x:Name="UpdateButton" Content="Update Book" HorizontalAlignment="Left" Height="50" Margin="1019,389,0,0" VerticalAlignment="Top" Width="165" TabIndex="5" Style="{StaticResource ButtonYellow}" Click="UpdateButton_Click"/>
         <Button x:Name="DeleteButton" Content="Delete Book" HorizontalAlignment="Left" Height="50" Margin="1019,461,0,0" VerticalAlignment="Top" Width="165" TabIndex="6" Style="{StaticResource ButtonYellow}" Click="DeleteButton_Click" />
         <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="50" Margin="1019,559,0,0" VerticalAlignment="Top" Width="165" TabIndex="7" Style="{StaticResource ButtonYellow}" Click="QuitButton_Click" />
+        <Button x:Name="CreateCategory" Content="Create Category" HorizontalAlignment="Left" Height="38" Margin="1019,516,0,0" VerticalAlignment="Top" TabIndex="8" Width="165" Click="CreateCategory_Click"/>
         <Label Content="© 2024 giáo.làng" HorizontalAlignment="Left" Height="45" Margin="34,611,0,0" VerticalAlignment="Top" Width="182" Foreground="#ffff00"/>
+
 
     </Grid>
 </Window>

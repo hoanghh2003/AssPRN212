@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Repository
 {
@@ -20,5 +21,47 @@ namespace Repository
             return _context.BookCategories.ToList();
         }
         //Lấy đc hết Category , gồm 3 cột , CateId, GenreType, Desc
+         public BookCategory GetCategoryId(int id)
+         {
+            _context = new BookManagementDbContext();
+            return _context.BookCategories.FirstOrDefault(b => b.BookCategoryId == id);
+         }
+
+        public void Create (BookCategory x)
+        {
+            _context = new BookManagementDbContext();
+            _context.BookCategories.Add(x);
+            _context.SaveChanges();
+        }
+
+        public void Update (BookCategory category)
+        {
+            var existingCategory = _context.BookCategories.FirstOrDefault(c => c.BookCategoryId == category.BookCategoryId);
+            if (existingCategory != null)
+            {
+                existingCategory.BookGenreType = category.BookGenreType;
+                existingCategory.Description = category.Description;
+                _context.SaveChanges();
+            }
+        }
+        
+        public void Delete (int id)
+        {
+            _context = new BookManagementDbContext();
+            var category = GetCategoryId(id);
+            if (category != null)
+            {
+                _context.BookCategories.Remove(category);
+                _context.SaveChanges();
+            }
+        }
+        public List<BookCategory> Search(string bookGenreType, string description)
+        {
+            _context = new BookManagementDbContext();
+            return _context.BookCategories.Where(c =>
+                (string.IsNullOrEmpty(bookGenreType) || c.BookGenreType.ToUpper().Contains(bookGenreType.ToUpper())) &&
+                (string.IsNullOrEmpty(description) || c.Description.ToUpper().Contains(description.ToUpper())))
+                .ToList();
+        }
     }
 }

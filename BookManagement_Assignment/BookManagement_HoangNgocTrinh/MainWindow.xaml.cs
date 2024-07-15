@@ -124,5 +124,12 @@ namespace BookManagement_HoangNgocTrinh
             if (result == MessageBoxResult.Yes)
                 Application.Current.Shutdown();
         }
+
+        private void CreateCategory_Click(object sender, RoutedEventArgs e)
+        {
+            CategoryDetailWindow categoryDetailWindow = new();
+            categoryDetailWindow.ShowDialog();
+        }
+
     }
 }
