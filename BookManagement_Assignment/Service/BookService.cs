@@ -91,11 +91,11 @@ namespace Services
             }
         }
 
-        public List<Book> SearchBooks(string name, string description, int role)
+        public List<Book> SearchBooks(string name, string description, int role , int id)
         {
             if (_userService.CanSearch(role))
             {
-                return _book.Search(name, description);
+                return _book.Search(name, description, id);
             }
             else
             {

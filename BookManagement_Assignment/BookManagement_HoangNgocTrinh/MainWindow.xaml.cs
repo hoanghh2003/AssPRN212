@@ -10,6 +10,7 @@ namespace BookManagement_HoangNgocTrinh
     /// </summary>
     public partial class MainWindow : Window
     {
+        private CategoryService _cateservice = new();
         private BookService _service = new();
         private int _userRole;
 
@@ -34,19 +35,27 @@ namespace BookManagement_HoangNgocTrinh
                 MessageBox.Show("Please select a book before editing", "Select one", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            this.Hide();
             BookDetailWindow detail = new BookDetailWindow(selected.BookId, _userRole); // Pass the role
             detail.SelectedBook = selected;
             detail.ShowDialog();
             LoadGrid();
+            this.Show();
         }
 
         private void BookMainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            
+
+
             LoadGrid();
         }
 
         private void LoadGrid()
         {
+            BookCategoryIdComboBox1.ItemsSource = _cateservice.GetALlCatrgories();
+            BookCategoryIdComboBox1.DisplayMemberPath = "BookGenreType";
+            BookCategoryIdComboBox1.SelectedValuePath = "BookCategoryId";
             BookListDataGrid.ItemsSource = null;
             BookListDataGrid.ItemsSource = _service.GetBooks(_userRole);
         }
@@ -58,7 +67,7 @@ namespace BookManagement_HoangNgocTrinh
                 MessageBox.Show("You do not have permission to create books.", "Permission Denied", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-
+            this.Hide();
             BookDetailWindow detail = new BookDetailWindow(0, _userRole); // Pass the role
             detail.ShowDialog();
             if (detail.DialogResult == true)
@@ -69,6 +78,7 @@ namespace BookManagement_HoangNgocTrinh
             {
                 MessageBox.Show("You have pressed Cancel");
             }
+            this.Show();
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
@@ -114,7 +124,14 @@ namespace BookManagement_HoangNgocTrinh
         {
             string name = BookNameTextBox.Text;
             string des = DescriptionTextBox.Text;
-            var filter = _service.SearchBooks(name, des, _userRole); // Pass the role
+            int id = 0;
+            if (BookCategoryIdComboBox1.SelectedValue != null)
+            {
+                id = int.Parse(BookCategoryIdComboBox1.SelectedValue.ToString());
+            }
+            var filter = _service.SearchBooks(name, des, _userRole, id);
+
+            // Pass the role
             BookListDataGrid.ItemsSource = filter;
         }
 
@@ -127,9 +144,32 @@ namespace BookManagement_HoangNgocTrinh
 
         private void CreateCategory_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             CategoryDetailWindow categoryDetailWindow = new();
             categoryDetailWindow.ShowDialog();
+            this.Show();
+            LoadGrid();
         }
 
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+
+            // Đóng MainWindow
+            Application.Current.MainWindow = loginWindow;
+            this.Close();
+        }
+
+        private void BookCategoryIdComboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            PerformSearch();
+
+        }
+
+        private void ResetFilterButton_Click(object sender, RoutedEventArgs e)
+        {
+            BookCategoryIdComboBox1.ItemsSource = _cateservice.GetALlCatrgories();
+        }
     }
 }

@@ -23,20 +23,24 @@
                 <DataGridTextColumn Header="Category Name" Binding="{Binding BookCategory.BookGenreType}" Width="70" />
             </DataGrid.Columns>
         </DataGrid>
-        <Rectangle HorizontalAlignment="Left" Height="95" Margin="39,144,0,0" Stroke="Black" VerticalAlignment="Top" Width="1145" Fill="#ffff00"/>
-        <Label Content="Book Name" HorizontalAlignment="Left" Height="45" Margin="73,174,0,0" VerticalAlignment="Top" Width="107" Foreground="#ff4500"/>
-        <TextBox x:Name="BookNameTextBox" HorizontalAlignment="Left" Height="45" Margin="193,170,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" TabIndex="0" TextChanged="BookNameTextBox_TextChanged"/>
-        <Label Content="Book Desc" HorizontalAlignment="Left" Height="45" Margin="514,174,0,0" VerticalAlignment="Top" Width="107" Foreground="#ff4500"/>
-        <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="45" Margin="628,170,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" TabIndex="1" TextChanged="DescriptionTextBox_TextChanged"/>
-        <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Left" Height="50" Margin="989,166,0,0" VerticalAlignment="Top" Width="165" TabIndex="2" Click="SearchButton_Click"/>
+        <Rectangle HorizontalAlignment="Center" Height="158" Margin="0,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="1144" Fill="#ffff00"/>
+        <Label Content="Book Name" HorizontalAlignment="Left" Height="45" Margin="64,131,0,0" VerticalAlignment="Top" Width="112" Foreground="#ff4500"/>
+        <TextBox x:Name="BookNameTextBox" HorizontalAlignment="Left" Height="44" Margin="216,126,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="274" TabIndex="0" TextChanged="BookNameTextBox_TextChanged"/>
+        <Label Content="Book Desc" HorizontalAlignment="Left" Height="45" Margin="512,131,0,0" VerticalAlignment="Top" Width="108" Foreground="#ff4500"/>
+        <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="45" Margin="626,127,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276" TabIndex="1" TextChanged="DescriptionTextBox_TextChanged"/>
+        <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Left" Height="50" Margin="988,123,0,0" VerticalAlignment="Top" Width="164" TabIndex="2" Click="SearchButton_Click"/>
 
-        <Button x:Name="CreateButton" Content="Create Book" HorizontalAlignment="Left" Height="50" Margin="1019,319,0,0" VerticalAlignment="Top" Width="165" TabIndex="4" Style="{StaticResource ButtonYellow}" Click="CreateBookButton_Click" />
+        <Button x:Name="CreateButton" Content="Create Book" HorizontalAlignment="Left" Height="50" Margin="1019,339,0,0" VerticalAlignment="Top" Width="165" TabIndex="4" Style="{StaticResource ButtonYellow}" Click="CreateBookButton_Click" />
 
-        <Button x:Name="UpdateButton" Content="Update Book" HorizontalAlignment="Left" Height="50" Margin="1019,389,0,0" VerticalAlignment="Top" Width="165" TabIndex="5" Style="{StaticResource ButtonYellow}" Click="UpdateButton_Click"/>
-        <Button x:Name="DeleteButton" Content="Delete Book" HorizontalAlignment="Left" Height="50" Margin="1019,461,0,0" VerticalAlignment="Top" Width="165" TabIndex="6" Style="{StaticResource ButtonYellow}" Click="DeleteButton_Click" />
-        <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="50" Margin="1019,559,0,0" VerticalAlignment="Top" Width="165" TabIndex="7" Style="{StaticResource ButtonYellow}" Click="QuitButton_Click" />
-        <Button x:Name="CreateCategory" Content="Create Category" HorizontalAlignment="Left" Height="38" Margin="1019,516,0,0" VerticalAlignment="Top" TabIndex="8" Width="165" Click="CreateCategory_Click"/>
+        <Button x:Name="UpdateButton" Content="Update Book" HorizontalAlignment="Left" Height="50" Margin="1019,394,0,0" VerticalAlignment="Top" Width="165" TabIndex="5" Style="{StaticResource ButtonYellow}" Click="UpdateButton_Click"/>
+        <Button x:Name="DeleteButton" Content="Delete Book" HorizontalAlignment="Left" Height="50" Margin="1019,449,0,0" VerticalAlignment="Top" Width="165" TabIndex="6" Style="{StaticResource ButtonYellow}" Click="DeleteButton_Click" />
+        <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="50" Margin="1019,504,0,0" VerticalAlignment="Top" Width="165" TabIndex="7" Style="{StaticResource ButtonYellow}" Click="QuitButton_Click" />
+        <Button x:Name="CreateCategory" Content="Create Category" HorizontalAlignment="Left" Height="47" Margin="1019,285,0,0" VerticalAlignment="Top" TabIndex="8" Width="165" Style="{StaticResource ButtonYellow}" Click="CreateCategory_Click"/>
         <Label Content="© 2024 giáo.làng" HorizontalAlignment="Left" Height="45" Margin="34,611,0,0" VerticalAlignment="Top" Width="182" Foreground="#ffff00"/>
+        <Button x:Name="Logout" Content="Logout" HorizontalAlignment="Left" Height="50" Margin="1019,559,0,0" VerticalAlignment="Top" Width="165" TabIndex="7" Style="{StaticResource ButtonYellow}" Click="LogoutButton_Click" />
+        <ComboBox x:Name="BookCategoryIdComboBox1" HorizontalAlignment="Left" Margin="216,202,0,0" VerticalAlignment="Top" Width="744" Height="35" SelectionChanged="BookCategoryIdComboBox1_SelectionChanged"/>
+        <Label Content="Filter by&#xD;&#xA;category" HorizontalAlignment="Left" Height="61" Margin="71,181,0,0" VerticalAlignment="Top" Width="93" Foreground="#ff4500"/>
+        <Button x:Name="ResetFilter" Content="ResetFilter" HorizontalAlignment="Left" Height="35" Margin="988,202,0,0" VerticalAlignment="Top" Width="164" TabIndex="2" Click="ResetFilterButton_Click"/>
 
 
     </Grid>

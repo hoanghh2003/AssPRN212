@@ -12,7 +12,7 @@
         <Label Content="Email" HorizontalAlignment="Left" Height="45" Margin="196,157,0,0" VerticalAlignment="Top" Width="107" Foreground="#ff4500"/>
         <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Height="45" Margin="301,154,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="375" TabIndex="0"/>
         <Label Content="Password" HorizontalAlignment="Left" Height="45" Margin="196,0,0,0" VerticalAlignment="Center" Width="107" Foreground="#ff4500"/>
-        <TextBox x:Name="PasswordTextBox" HorizontalAlignment="Left" Height="45" Margin="301,225,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="375" TabIndex="1"/>
+        <PasswordBox x:Name="PasswordTextBox" HorizontalAlignment="Left" Height="45" Margin="301,225,0,0"  VerticalAlignment="Top" Width="375" TabIndex="1"  Foreground="#ffff" Background="#ff4500"/>
         <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Height="55" Margin="196,311,0,0" VerticalAlignment="Top" Width="230" TabIndex="2" Click="LoginButton_Click"/>
         <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="55" Margin="446,311,0,0" VerticalAlignment="Top" Width="230" TabIndex="3" Click="QuitButton_Click"/>
         <Label Content="© 2024 giáo.làng" HorizontalAlignment="Left" Height="45" Margin="351,428,0,0" VerticalAlignment="Top" Width="182" Foreground="#ffff00"/>

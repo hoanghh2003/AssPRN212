@@ -18,7 +18,7 @@ namespace BookManagement_HoangNgocTrinh
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             string email = EmailTextBox.Text;
-            string password = PasswordTextBox.Text;
+            string password = PasswordTextBox.Password;
 
             if (_userService.CheckUser(email, password, out int role))
             {

@@ -65,12 +65,13 @@ namespace Repository.Entities
 
         }
 
-        public List<Book> Search(string name, string description)
+        public List<Book> Search(string name, string description, int id)
         {
             _context = new();
             return _context.Books.Where(b =>
             ( string.IsNullOrEmpty(name) || b.BookName.ToUpper().Contains(name.ToUpper())) && 
-            (string.IsNullOrEmpty(description) || b.Description.ToUpper().Contains(description.ToUpper()))).Include("BookCategory")
+            (string.IsNullOrEmpty(description) || b.Description.ToUpper().Contains(description.ToUpper()))&&
+            (id == 0 || b.BookCategoryId == id)).Include("BookCategory")
                 .ToList();
         }
 
