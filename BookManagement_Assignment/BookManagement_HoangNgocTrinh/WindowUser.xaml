@@ -22,7 +22,7 @@
 
 
 
-        <DataGrid x:Name="UserAccountDataGrid" HorizontalAlignment="Left" Height="288" Margin="10,85,0,0" VerticalAlignment="Top" Width="956" AutoGenerateColumns="True" TabIndex="3" HorizontalScrollBarVisibility="Auto" FontSize="18" Grid.Row="2" Grid.RowSpan="2" >
+        <DataGrid x:Name="UserAccountDataGrid" HorizontalAlignment="Left" Height="288" Margin="10,85,0,0" VerticalAlignment="Top" Width="956" AutoGenerateColumns="False" TabIndex="3" HorizontalScrollBarVisibility="Auto" FontSize="18" Grid.Row="2" Grid.RowSpan="2" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Member ID" Binding="{Binding MemberId}" Width="100" />
                 <DataGridTextColumn Header="Password" Binding="{Binding Password}" Width="180" />

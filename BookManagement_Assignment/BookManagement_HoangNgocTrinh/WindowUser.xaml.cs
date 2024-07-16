@@ -53,6 +53,7 @@ namespace PE
             if (list.Count == 0)
             {
                 MessageBox.Show("Not found any account", "Find", MessageBoxButton.OK, MessageBoxImage.Warning);
+                UserAccountDataGrid.ItemsSource = null;
                 UserAccountDataGrid.ItemsSource = userService.getAll();
             }
             else { UserAccountDataGrid.ItemsSource = list; }
