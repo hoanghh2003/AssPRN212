@@ -37,7 +37,7 @@
         <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="50" Margin="1019,504,0,0" VerticalAlignment="Top" Width="165" TabIndex="7" Style="{StaticResource ButtonYellow}" Click="QuitButton_Click" />
         <Button x:Name="CreateCategory" Content="Create Category" HorizontalAlignment="Left" Height="47" Margin="1019,285,0,0" VerticalAlignment="Top" TabIndex="8" Width="165" Style="{StaticResource ButtonYellow}" Click="CreateCategory_Click"/>
         <Label Content="© 2024 giáo.làng" HorizontalAlignment="Left" Height="45" Margin="34,611,0,0" VerticalAlignment="Top" Width="182" Foreground="#ffff00"/>
-        <Button x:Name="Logout" Content="Logout" HorizontalAlignment="Left" Height="50" Margin="1019,559,0,0" VerticalAlignment="Top" Width="165" TabIndex="7" Style="{StaticResource ButtonYellow}" Click="LogoutButton_Click" />
+        <Button x:Name="Logout" Content="Close" HorizontalAlignment="Left" Height="50" Margin="1019,559,0,0" VerticalAlignment="Top" Width="165" TabIndex="7" Style="{StaticResource ButtonYellow}" Click="LogoutButton_Click" />
         <ComboBox x:Name="BookCategoryIdComboBox1" HorizontalAlignment="Left" Margin="216,202,0,0" VerticalAlignment="Top" Width="744" Height="35" SelectionChanged="BookCategoryIdComboBox1_SelectionChanged"/>
         <Label Content="Filter by&#xD;&#xA;category" HorizontalAlignment="Left" Height="61" Margin="71,181,0,0" VerticalAlignment="Top" Width="93" Foreground="#ff4500"/>
         <Button x:Name="ResetFilter" Content="ResetFilter" HorizontalAlignment="Left" Height="35" Margin="988,202,0,0" VerticalAlignment="Top" Width="164" TabIndex="2" Click="ResetFilterButton_Click"/>
