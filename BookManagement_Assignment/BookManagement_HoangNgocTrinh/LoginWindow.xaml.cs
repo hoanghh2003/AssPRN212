@@ -26,10 +26,12 @@ namespace BookManagement_HoangNgocTrinh
                 {
                     MessageBox.Show("Login Successful !!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                    MainWindow mainWindow = new MainWindow(role); // Pass the role to MainWindow
-                    mainWindow.Show();
+                    MenuWindow menuWindow = new MenuWindow(role);
+                    
+                    menuWindow.Show();
                     this.Close();
-                }else MessageBox.Show("You have no permission to acccess this function", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                else MessageBox.Show("You have no permission to acccess this function", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
 
             }
             else

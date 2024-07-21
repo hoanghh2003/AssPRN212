@@ -1,0 +1,13 @@
+﻿<Window x:Class="BookManagement_HoangNgocTrinh.MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookManagement_HoangNgocTrinh"
+        mc:Ignorable="d"
+        Title="Menu" Height="400" Width="600" Background="#ffffff" WindowStartupLocation="CenterScreen" Loaded="Load_Grid">
+    <Grid>
+        <Button x:Name="ManageAccountButton" Content="Manage Account" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="60" Margin="50,50,0,0" Click="ManageAccountButton_Click"/>
+        <Button x:Name="ManageBookButton" Content="Manage Book" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="60" Margin="50,150,0,0" Click="ManageBookButton_Click"/>
+    </Grid>
+</Window>
