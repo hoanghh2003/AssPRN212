@@ -6,7 +6,12 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Books_icon-icons.com_76879.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Books_icon-icons.com_76879.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Service\Services.csproj">
