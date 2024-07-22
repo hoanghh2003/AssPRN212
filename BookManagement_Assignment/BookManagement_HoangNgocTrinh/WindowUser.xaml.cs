@@ -82,7 +82,7 @@ namespace PE
             {
                 if (selected.Role == 1)
                 {
-                    MessageBox.Show("not allows to delete account with admin role", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Not allows to delete account with admin role", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                 var result = MessageBox.Show($"Do you want to delete '{selected.FullName}'?", "Confirm Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
