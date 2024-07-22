@@ -5,63 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PE"
         mc:Ignorable="d"
-        Title="UserDetailWindow" Height="990" Width="1500" ResizeMode="NoResize" Loaded="UserDetailWindow_Loaded">
-
-    <!-- Define Window Background -->
-    <Window.Background>
-        <ImageBrush ImageSource="C:\Users\DELL\Desktop\Ki5\AssPRN212\BookManagement_Assignment\BookManagement_HoangNgocTrinh\image.jpg" Stretch="UniformToFill"/>
-    </Window.Background>
-
-    <!-- Define Styles -->
+        Title="UserDetailWindow"  ResizeMode="NoResize" Height="990" Width="1500" Loaded="UserDetailWindow_Loaded">
     <Window.Resources>
-        <Style TargetType="Label">
-            <Setter Property="FontSize" Value="20"/>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="DarkSlateGray"/>
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="BorderBrush" Value="LightGray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="WhiteSmoke"/>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="Margin" Value="0,0,20,0"/>
+            <Setter Property="Background" Value="#FF4CAF50"/>
             <Setter Property="Foreground" Value="White"/>
-        </Style>
-        <Style TargetType="TextBox">
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="Padding" Value="5"/>
-        </Style>
-        <Style TargetType="PasswordBox">
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="Padding" Value="5"/>
-        </Style>
-        <Style TargetType="ComboBox">
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="Padding" Value="5"/>
-        </Style>
-        <Style TargetType="Button">
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="Padding" Value="10"/>
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="Background" Value="#FF007ACC"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="BorderBrush" Value="#FF007ACC"/>
+            <Setter Property="BorderThickness" Value="0"/>
         </Style>
     </Window.Resources>
 
     <Grid Margin="20">
-        <Border BorderBrush="White" BorderThickness="2" Padding="10">
-            <Grid>
-                <Label x:Name="WindowModeLabel" Content="Create | Update User" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="50"/>
+        <Label x:Name="WindowModeLabel" Content="Create | Update User" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="700" FontWeight="Bold" FontSize="50" Foreground="DarkBlue" Margin="0,0,0,20"/>
+        <Rectangle HorizontalAlignment="Left" Height="545" VerticalAlignment="Top" Width="875" Fill="White" Stroke="LightGray" RadiusX="10" RadiusY="10" Margin="0,100,0,0" />
+        <Label Content="FullName" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Style="{StaticResource LabelStyle}" Margin="20,120,0,0"/>
+        <TextBox x:Name="FullNameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="637" Style="{StaticResource TextBoxStyle}" Margin="150,120,0,0" TabIndex="1"/>
+        <Button x:Name="SaveButton" Content="Save Book" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Style="{StaticResource ButtonStyle}" Margin="900,100,0,0" TabIndex="8" Click="SaveButton_Click"/>
+        <Button x:Name="CloseButton" Content="Close" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Style="{StaticResource ButtonStyle}" Margin="900,180,0,0" TabIndex="9"/>
+        <Label Content="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Style="{StaticResource LabelStyle}" Margin="20,190,0,0"/>
+        <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="637" Style="{StaticResource TextBoxStyle}" Margin="150,190,0,0" TabIndex="2"/>
 
-                <Border HorizontalAlignment="Left" Height="545" Margin="38,144,0,0" VerticalAlignment="Top" Width="875" BorderBrush="White" BorderThickness="2"/>
+        <Label Content="Password" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Style="{StaticResource LabelStyle}" Margin="20,260,0,0"/>
+        <TextBox x:Name="PasswordTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="635" Style="{StaticResource TextBoxStyle}" Margin="150,260,0,0" TabIndex="3"/>
 
-                <Label Content="Full Name" HorizontalAlignment="Left" Margin="58,234,0,0" VerticalAlignment="Top" Width="107"/>
-                <TextBox x:Name="FullNameTextBox" HorizontalAlignment="Left" Margin="186,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="637" TabIndex="1"/>
-
-                <Label Content="Email" HorizontalAlignment="Left" Margin="58,303,0,0" VerticalAlignment="Top" Width="107"/>
-                <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Margin="186,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="637" TabIndex="2"/>
-
-                <Label Content="Password" HorizontalAlignment="Left" Margin="58,394,0,0" VerticalAlignment="Top" Width="107"/>
-                <PasswordBox x:Name="PasswordTextBox" HorizontalAlignment="Left" Margin="186,394,0,0" VerticalAlignment="Top" Width="637" TabIndex="3"/>
-
-                <Label Content="Role" HorizontalAlignment="Left" Margin="58,487,0,0" VerticalAlignment="Top" Width="107"/>
-                <ComboBox x:Name="UserRoleComboBox" HorizontalAlignment="Left" Margin="186,487,0,0" VerticalAlignment="Top" Width="483" TabIndex="4"/>
-
-                <Button x:Name="SaveButton" Content="Save User" HorizontalAlignment="Left" Margin="945,144,0,0" VerticalAlignment="Top" Width="165" TabIndex="5" Click="SaveButton_Click"/>
-                <Button x:Name="CloseButton" Content="Close" HorizontalAlignment="Left" Margin="945,224,0,0" VerticalAlignment="Top" Width="165" TabIndex="6" Click="CloseButton_Click"/>
-            </Grid>
-        </Border>
+        <Label Content="Role" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Style="{StaticResource LabelStyle}" Margin="20,330,0,0"/>
+        <ComboBox x:Name="UserRoleComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="483" Margin="150,330,0,0" Height="45"/>
     </Grid>
 </Window>

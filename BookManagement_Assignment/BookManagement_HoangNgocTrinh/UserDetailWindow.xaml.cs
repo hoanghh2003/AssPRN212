@@ -38,7 +38,7 @@ namespace PE
         private void UserDetailWindow_Loaded(object sender, RoutedEventArgs e)
         {
             var priceList = new List<string> { "Customer", "Staff", "Admin" };
-            UerRoleComboBox11.ItemsSource = priceList;
+            UserRoleComboBox.ItemsSource = priceList;
             WindowModeLabel.Content = "Add New  User";
             if (SelecteAccount != null)
             {
@@ -50,7 +50,7 @@ namespace PE
                 PasswordTextBox.Text = SelecteAccount.Password.ToString();
 
 
-                UerRoleComboBox11.SelectedValue = SelecteAccount.Role.ToString();
+                UserRoleComboBox.SelectedValue = SelecteAccount.Role.ToString();
                 // quan trọng , nếu kh mọi cuốn sách edit đều về
                 // category  đầu tiên 1-fiction type
             }
@@ -63,7 +63,7 @@ namespace PE
             if (string.IsNullOrWhiteSpace(FullNameTextBox.Text) ||
                 string.IsNullOrWhiteSpace(EmailTextBox.Text) ||
                 string.IsNullOrWhiteSpace(PasswordTextBox.Text) ||
-                string.IsNullOrWhiteSpace(UerRoleComboBox11.Text))
+                string.IsNullOrWhiteSpace(UserRoleComboBox.Text))
             {
                 System.Windows.MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -85,7 +85,7 @@ namespace PE
         { "Admin", 1 }
     };
 
-            if (roleMapping.TryGetValue(UerRoleComboBox11.Text, out int roleValue))
+            if (roleMapping.TryGetValue(UserRoleComboBox.Text, out int roleValue))
             {
                 user.Role = roleValue;
             }
