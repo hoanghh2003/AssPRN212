@@ -31,7 +31,7 @@ namespace BookManagement_HoangNgocTrinh
                     menuWindow.Show();
                     this.Close();
                 }
-                else MessageBox.Show("You have no permission to acccess this function", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                else MessageBox.Show("You have no permission to access this function", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
 
             }
             else

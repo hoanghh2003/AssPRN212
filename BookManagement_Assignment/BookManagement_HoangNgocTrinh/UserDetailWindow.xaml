@@ -31,7 +31,7 @@
 
     <Grid Margin="20">
         <Label x:Name="WindowModeLabel" Content="Create | Update User" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="700" FontWeight="Bold" FontSize="50" Foreground="DarkBlue" Margin="0,0,0,20"/>
-        <Rectangle HorizontalAlignment="Left" Height="545" VerticalAlignment="Top" Width="875" Fill="White" Stroke="LightGray" RadiusX="10" RadiusY="10" Margin="0,100,0,0" />
+        <Rectangle HorizontalAlignment="Left" Height="710" VerticalAlignment="Top" Width="1100" Fill="White" Stroke="LightGray" RadiusX="10" RadiusY="10" Margin="0,100,0,0" />
         <Label Content="FullName" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Style="{StaticResource LabelStyle}" Margin="20,120,0,0"/>
         <TextBox x:Name="FullNameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="637" Style="{StaticResource TextBoxStyle}" Margin="150,120,0,0" TabIndex="1"/>
         <Button x:Name="SaveButton" Content="Save Book" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Style="{StaticResource ButtonStyle}" Margin="900,100,0,0" TabIndex="8" Click="SaveButton_Click"/>
