@@ -39,4 +39,4 @@ ManageBook is a book management application designed to help users easily manage
 | Nguyễn Bá Minh Đức | Member |CRUD Account|
 | Hoàng	Minh	Đại | Member |Menu and User Information Display|
 | Nguyễn Trần Khánh Hà | Member |View Books by Category & Logout|
-| Hà Huy Hoàng | Leader |Menu and User Information Display|
+| Hà Huy Hoàng && Hoàng Minh Đại | Leader |Menu and User Information Display|
