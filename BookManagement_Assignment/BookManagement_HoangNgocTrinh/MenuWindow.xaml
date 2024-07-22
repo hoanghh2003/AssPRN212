@@ -9,5 +9,6 @@
     <Grid>
         <Button x:Name="ManageAccountButton" Content="Manage Account" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="60" Margin="50,50,0,0" Click="ManageAccountButton_Click"/>
         <Button x:Name="ManageBookButton" Content="Manage Book" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="60" Margin="50,150,0,0" Click="ManageBookButton_Click"/>
+        <Button x:Name="Logout" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="43" Margin="393,258,0,0" Click="LogoutButton_Click"/>
     </Grid>
 </Window>

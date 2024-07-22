@@ -31,15 +31,20 @@ namespace BookManagement_HoangNgocTrinh
 
         private void ManageBookButton_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             MainWindow mainWindow = new MainWindow(_userRole);
-            mainWindow.Show();
+
+            mainWindow.ShowDialog();
+            this.Show();
+
         }
 
         private void ManageAccountButton_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Hide();
             WindowUser main = new();
             main.ShowDialog();
+            this.Show();
 
             
 
@@ -50,6 +55,16 @@ namespace BookManagement_HoangNgocTrinh
             if (_userRole == 2) {
                 ManageAccountButton.IsEnabled = false;
             }
+        }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+
+            // Đóng MainWindow
+            Application.Current.MainWindow = loginWindow;
+            this.Close();
         }
     }
 }

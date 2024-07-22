@@ -131,6 +131,11 @@ namespace PE
                 MessageBox.Show("Please select a user to update.", "Select one", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 
 }

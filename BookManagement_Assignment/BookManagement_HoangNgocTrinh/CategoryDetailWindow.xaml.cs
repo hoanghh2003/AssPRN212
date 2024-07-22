@@ -62,12 +62,10 @@ namespace BookManagement_HoangNgocTrinh
             var categories = _categoryService.GetALlCatrgories();
             BookCategoryListDataGrid.ItemsSource = categories;
         }
-
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
             if(_selectedCategory == null)

@@ -153,11 +153,6 @@ namespace BookManagement_HoangNgocTrinh
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            LoginWindow loginWindow = new LoginWindow();
-            loginWindow.Show();
-
-            // Đóng MainWindow
-            Application.Current.MainWindow = loginWindow;
             this.Close();
         }
 

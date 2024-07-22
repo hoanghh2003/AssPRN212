@@ -15,7 +15,7 @@
             <RowDefinition Height="87*"/>
         </Grid.RowDefinitions>
         <Label Content="Account Manager" HorizontalAlignment="Left" Height="80" Margin="31,20,0,0" VerticalAlignment="Top" Width="520" FontWeight="Heavy" FontSize="50"/>
-        <Label Content="ver. 24-SU" HorizontalAlignment="Left" Height="50" Margin="432,40,0,0" VerticalAlignment="Top" Width="275" FontSize="30"/>
+       
         <Label Content="User List" HorizontalAlignment="Left" Height="55" Margin="35,42,0,0" VerticalAlignment="Top" Width="165" Grid.Row="2"/>
 
 
@@ -38,11 +38,12 @@
         <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Height="45" Margin="628,55,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" TabIndex="1"  Grid.Row="1" TextChanged="UserEmailTextBox_TextChanged"/>
         <Button x:Name="SearchButtonBook" Content="Search" HorizontalAlignment="Left" Height="50" Margin="989,0,0,0" VerticalAlignment="Center" Width="165" TabIndex="2"  Grid.Row="1" />
 
-        <Button x:Name="CreateButton" Content="Create Book" HorizontalAlignment="Left" Height="50" Margin="1019,0,0,0" VerticalAlignment="Center" Width="165" TabIndex="4" Style="{StaticResource ButtonYellow}"  Grid.Row="2" Click="CreateButton_Click"  />
+        <Button x:Name="CreateButton" Content="Create Book" HorizontalAlignment="Left" Height="50" Margin="1019,85,0,0" VerticalAlignment="Top" Width="165" TabIndex="4" Style="{StaticResource ButtonYellow}"  Grid.Row="2" Click="CreateButton_Click"  />
 
-        <Button x:Name="UpdateButton" Content="Update Book" HorizontalAlignment="Left" Height="50" Margin="1019,204,0,0" VerticalAlignment="Top" Width="165" TabIndex="5" Style="{StaticResource ButtonYellow}"  Grid.Row="2" Click="UpdateButton_Click"/>
-        <Button x:Name="DeleteButton" Content="Delete Book" HorizontalAlignment="Left" Height="50" Margin="1019,279,0,0" VerticalAlignment="Top" Width="165" TabIndex="6" Style="{StaticResource ButtonYellow}"  Grid.Row="2" Click="DeleteButton_Click" />
+        <Button x:Name="UpdateButton" Content="Update Book" HorizontalAlignment="Left" Height="50" Margin="1019,150,0,0" VerticalAlignment="Top" Width="165" TabIndex="5" Style="{StaticResource ButtonYellow}"  Grid.Row="2" Click="UpdateButton_Click"/>
+        <Button x:Name="DeleteButton" Content="Delete Book" HorizontalAlignment="Left" Height="50" Margin="1019,215,0,0" VerticalAlignment="Top" Width="165" TabIndex="6" Style="{StaticResource ButtonYellow}"  Grid.Row="2" Click="DeleteButton_Click" />
         <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="50" Margin="1019,102,0,0" VerticalAlignment="Top" Width="165" TabIndex="7" Style="{StaticResource ButtonYellow}"  Grid.Row="3" />
-        <Label Content="© 2024 giáo.làng" HorizontalAlignment="Left" Height="45" Margin="306,15,0,0" VerticalAlignment="Top" Width="182" Foreground="#ffff00" Grid.Row="3"/>
+
+        <Button x:Name="CancelButton" Content="Close" HorizontalAlignment="Left" Height="50" Margin="1019,280,0,0" VerticalAlignment="Top" Width="165" TabIndex="6" Style="{StaticResource ButtonYellow}"  Grid.Row="2" Click="CancelButton_Click" Grid.RowSpan="2" />
     </Grid>
 </Window>
