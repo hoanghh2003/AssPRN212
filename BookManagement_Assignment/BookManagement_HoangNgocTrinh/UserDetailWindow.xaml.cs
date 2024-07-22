@@ -134,5 +134,10 @@ namespace PE
 
         }
 
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+            this.Close();
+        }
     }
 }

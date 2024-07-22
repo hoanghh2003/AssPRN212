@@ -1,4 +1,5 @@
-﻿using Repository.Entities;
+﻿using BookManagement_HoangNgocTrinh;
+using Repository.Entities;
 
 using Services;
 using System;
@@ -81,7 +82,7 @@ namespace PE
             {
                 if (selected.Role == 1)
                 {
-                    MessageBox.Show("not allows update account with admin role", "ERROR", MessageBoxButton.OK);
+                    MessageBox.Show("not allows to delete account with admin role", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                 var result = MessageBox.Show($"Do you want to delete '{selected.FullName}'?", "Confirm Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
@@ -102,17 +103,20 @@ namespace PE
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-            UserDetailWindow bookDetailWindow = new UserDetailWindow();
+            UserDetailWindow detail = new UserDetailWindow();
             // render()
 
-            bookDetailWindow.Show();
-            if (bookDetailWindow.DialogResult == true)
+            this.Hide();
+            detail.ShowDialog();
+            if (detail.DialogResult == true)
             {
-                // F5 lại grid
-
                 Load_Grid();
             }
-            this.Close();
+            else
+            {
+                MessageBox.Show("You have pressed Cancel");
+            }
+            this.Show();
         }
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
@@ -121,7 +125,7 @@ namespace PE
             {
                 if (selected.Role == 1)
                 {
-                    MessageBox.Show("not allows update account with admin role", "ERROR", MessageBoxButton.OK);
+                    MessageBox.Show("Not allows to update account with admin role", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                 UserDetailWindow main = new UserDetailWindow();
@@ -141,6 +145,13 @@ namespace PE
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            MenuWindow main1 = new(role);
+            main1.Show();
+        }
+
+        private void SearchButtonBook_Click(object sender, RoutedEventArgs e)
+        {
+            perform_Change();
         }
     }
 

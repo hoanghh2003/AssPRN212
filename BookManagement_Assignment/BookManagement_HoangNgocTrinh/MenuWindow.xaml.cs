@@ -27,15 +27,11 @@ namespace BookManagement_HoangNgocTrinh
             _userRole = role;
         }
 
-
-
         private void ManageBookButton_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
             MainWindow mainWindow = new MainWindow(_userRole);
-
             mainWindow.ShowDialog();
-            this.Show();
 
         }
 
@@ -44,7 +40,6 @@ namespace BookManagement_HoangNgocTrinh
             this.Hide();
             WindowUser main = new(_userRole);
             main.ShowDialog();
-            this.Show();
 
             
 

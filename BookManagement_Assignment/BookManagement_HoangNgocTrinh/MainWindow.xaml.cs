@@ -154,6 +154,8 @@ namespace BookManagement_HoangNgocTrinh
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            MenuWindow main1 = new(_userRole);
+            main1.Show();
         }
 
         private void BookCategoryIdComboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
