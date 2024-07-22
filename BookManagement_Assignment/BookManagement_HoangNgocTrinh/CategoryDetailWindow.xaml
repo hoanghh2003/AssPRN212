@@ -5,24 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookManagement_HoangNgocTrinh"
         mc:Ignorable="d"
-        Title="CategoryDetailWindow" Height="450" Width="800" Background="Aqua" Loaded="CategoryDetailWindow1_Loaded">
+        Title="CategoryDetailWindow" Height="450" Width="800" ResizeMode="NoResize" Loaded="CategoryDetailWindow1_Loaded" Background="#f0f4f8">
     <Grid>
-        <TextBox x:Name="BookGenreTypeTextBox" HorizontalAlignment="Left" Height="37" Margin="126,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226"/>
-        <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="31" Margin="126,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226"/>
-        <Label Content="GenreType" HorizontalAlignment="Left" Height="37" Margin="10,68,0,0" VerticalAlignment="Top" Width="111" Background="#FFA7BB15"/>
-        <Label Content="Description" HorizontalAlignment="Left" Height="31" Margin="10,110,0,0" VerticalAlignment="Top" Width="111" Background="#FFA0A944"/>
-        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Height="35" Margin="677,358,0,0" VerticalAlignment="Top" Width="113" Click="CancelButton_Click"/>
-        <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Height="35" Margin="677,0,0,0" VerticalAlignment="Center" Width="113" Click="SaveButton_Click"/>
-        <DataGrid x:Name="BookCategoryListDataGrid" HorizontalAlignment="Left" Height="207" Margin="10,186,0,0" VerticalAlignment="Top" Width="662" SelectionChanged="BookCategoryListDataGrid_SelectionChanged">
+        <TextBox x:Name="BookGenreTypeTextBox" HorizontalAlignment="Left" Height="37" Margin="126,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Padding="10,5" Background="#ecf0f1"/>
+        <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="31" Margin="126,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Padding="10,5" Background="#ecf0f1"/>
+        <Label Content="GenreType" HorizontalAlignment="Left" Height="37" Margin="10,68,0,0" VerticalAlignment="Top" Width="111" Foreground="#2c3e50"/>
+        <Label Content="Description" HorizontalAlignment="Left" Height="31" Margin="10,110,0,0" VerticalAlignment="Top" Width="111" Foreground="#2c3e50"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Height="35" Margin="677,358,0,0" VerticalAlignment="Top" Width="113" Click="CancelButton_Click" Background="#e74c3c" Foreground="White" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Height="35" Margin="677,0,0,0" VerticalAlignment="Center" Width="113" Click="SaveButton_Click" Background="#2ecc71" Foreground="White" FontSize="16" FontWeight="Bold"/>
+        <DataGrid x:Name="BookCategoryListDataGrid" HorizontalAlignment="Left" Height="207" Margin="10,186,0,0" VerticalAlignment="Top" Width="662" SelectionChanged="BookCategoryListDataGrid_SelectionChanged" Background="White" AlternatingRowBackground="#ecf0f1" Foreground="#2c3e50">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding BookCategoryId}" Width="30" />
+                <DataGridTextColumn Header="ID" Binding="{Binding BookCategoryId}" Width="50" />
                 <DataGridTextColumn Header="BookGenreType" Binding="{Binding BookGenreType}" Width="300" />
-                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="200" />
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="300" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="UpdateButton" Content="Update"  HorizontalAlignment="Left" Height="29" Margin="678,324,0,0" VerticalAlignment="Top" Width="112" Click="UpdateButton_Click" RenderTransformOrigin="0.201,1.534"/>
-        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Height="42" Margin="678,277,0,0" VerticalAlignment="Top" Width="112" Click="DeleteButton_Click"/>
-        <Label x:Name="BookCategoryLabel" Content="BookCategory" Background="Black" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Height="37" Margin="0,10,0,0" VerticalAlignment="Top" Width="208"/>
-        <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Left" Height="33" Margin="678,239,0,0" VerticalAlignment="Top" Width="112" Click="SearchButton_Click" RenderTransformOrigin="0.277,0.5"/>
+        <Button x:Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Height="29" Margin="678,324,0,0" VerticalAlignment="Top" Width="112" Click="UpdateButton_Click" Background="#f39c12" Foreground="White" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Height="42" Margin="678,277,0,0" VerticalAlignment="Top" Width="112" Click="DeleteButton_Click" Background="#e74c3c" Foreground="White" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="BookCategoryLabel" Content="Book Category" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Height="37" Margin="0,10,0,0" VerticalAlignment="Top" Width="208" Foreground="#2c3e50" FontSize="20"/>
+        <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Left" Height="33" Margin="678,239,0,0" VerticalAlignment="Top" Width="112" Click="SearchButton_Click" Background="#3498db" Foreground="White" FontSize="16" FontWeight="Bold"/>
     </Grid>
 </Window>

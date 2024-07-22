@@ -5,25 +5,63 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PE"
         mc:Ignorable="d"
-        Title="UserDetailWindow"  Height="990" Width="1500" Background="#fff" Loaded="UserDetailWindow_Loaded">
-    <Grid >
-        <Label x:Name="WindowModeLabel" Content="Create | Update User" HorizontalAlignment="Left" Height="80" Margin="31,20,0,0" VerticalAlignment="Top" Width="700" FontWeight="Heavy" FontSize="50"/>
-        <Rectangle HorizontalAlignment="Left" Height="545" Margin="38,144,0,0" Stroke="Black" VerticalAlignment="Top" Width="875" Fill="#ffff00"/>
-        <Label Content="FullName" HorizontalAlignment="Left" Height="45" Margin="58,234,0,0" VerticalAlignment="Top" Width="107" Foreground="#ff4500"/>
-        <TextBox x:Name="FullNameTextBox" HorizontalAlignment="Left" Height="45" Margin="186,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="637" TabIndex="1"/>
-        <Button x:Name="SaveButton" Content="Save Book" HorizontalAlignment="Left" Height="50" Margin="945,144,0,0" VerticalAlignment="Top" Width="165" TabIndex="8" Click="SaveButton_Click" />
-        <Button x:Name="CloseButton" Content="Close" HorizontalAlignment="Left" Height="50" Margin="945,224,0,0" VerticalAlignment="Top" Width="165" TabIndex="9"  />
-        <Label Content="Email" HorizontalAlignment="Left" Height="45" Margin="58,303,0,0" VerticalAlignment="Top" Width="107" Foreground="#ff4500"/>
-        <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Height="45" Margin="186,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="637" TabIndex="1"/>
+        Title="UserDetailWindow" Height="990" Width="1500" ResizeMode="NoResize" Loaded="UserDetailWindow_Loaded">
 
-        <Label Content="Password" HorizontalAlignment="Left" Height="45" Margin="58,394,0,0" VerticalAlignment="Top" Width="107" Foreground="#ff4500"/>
-        <TextBox x:Name="PasswordTextBox" HorizontalAlignment="Left" Height="45" Margin="188,394,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="635" TabIndex="6" />
+    <!-- Define Window Background -->
+    <Window.Background>
+        <ImageBrush ImageSource="C:\Users\DELL\Desktop\Ki5\AssPRN212\BookManagement_Assignment\BookManagement_HoangNgocTrinh\image.jpg" Stretch="UniformToFill"/>
+    </Window.Background>
 
-        <Label Content="Role" HorizontalAlignment="Left" Height="45" Margin="58,487,0,0" VerticalAlignment="Top" Width="107" Foreground="#ff4500"/>
-        <Label Content="Role" HorizontalAlignment="Left" Height="45" Margin="58,487,0,0" VerticalAlignment="Top" Width="107" Foreground="#ff4500"/>
-        <ComboBox x:Name="UerRoleComboBox11" HorizontalAlignment="Left" Height="45" Margin="188,487,0,0" VerticalAlignment="Top" Width="483"/>
+    <!-- Define Styles -->
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Background" Value="#FF007ACC"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#FF007ACC"/>
+        </Style>
+    </Window.Resources>
 
+    <Grid Margin="20">
+        <Border BorderBrush="White" BorderThickness="2" Padding="10">
+            <Grid>
+                <Label x:Name="WindowModeLabel" Content="Create | Update User" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="50"/>
 
+                <Border HorizontalAlignment="Left" Height="545" Margin="38,144,0,0" VerticalAlignment="Top" Width="875" BorderBrush="White" BorderThickness="2"/>
 
+                <Label Content="Full Name" HorizontalAlignment="Left" Margin="58,234,0,0" VerticalAlignment="Top" Width="107"/>
+                <TextBox x:Name="FullNameTextBox" HorizontalAlignment="Left" Margin="186,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="637" TabIndex="1"/>
+
+                <Label Content="Email" HorizontalAlignment="Left" Margin="58,303,0,0" VerticalAlignment="Top" Width="107"/>
+                <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Margin="186,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="637" TabIndex="2"/>
+
+                <Label Content="Password" HorizontalAlignment="Left" Margin="58,394,0,0" VerticalAlignment="Top" Width="107"/>
+                <PasswordBox x:Name="PasswordTextBox" HorizontalAlignment="Left" Margin="186,394,0,0" VerticalAlignment="Top" Width="637" TabIndex="3"/>
+
+                <Label Content="Role" HorizontalAlignment="Left" Margin="58,487,0,0" VerticalAlignment="Top" Width="107"/>
+                <ComboBox x:Name="UserRoleComboBox" HorizontalAlignment="Left" Margin="186,487,0,0" VerticalAlignment="Top" Width="483" TabIndex="4"/>
+
+                <Button x:Name="SaveButton" Content="Save User" HorizontalAlignment="Left" Margin="945,144,0,0" VerticalAlignment="Top" Width="165" TabIndex="5" Click="SaveButton_Click"/>
+                <Button x:Name="CloseButton" Content="Close" HorizontalAlignment="Left" Margin="945,224,0,0" VerticalAlignment="Top" Width="165" TabIndex="6" Click="CloseButton_Click"/>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

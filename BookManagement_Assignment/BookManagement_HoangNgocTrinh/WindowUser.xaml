@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PE"
         mc:Ignorable="d"
-        
-    Title="WindowUser" Height="698" Width="1400" Background="#ff2800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="UserMainWindow_Loaded">
+        Title="WindowUser" Height="698" Width="1400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="UserMainWindow_Loaded" Background="#f0f4f8">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="115*"/>
@@ -14,36 +13,27 @@
             <RowDefinition Height="329*"/>
             <RowDefinition Height="87*"/>
         </Grid.RowDefinitions>
-        <Label Content="Account Manager" HorizontalAlignment="Left" Height="80" Margin="31,20,0,0" VerticalAlignment="Top" Width="520" FontWeight="Heavy" FontSize="50"/>
-       
-        <Label Content="User List" HorizontalAlignment="Left" Height="55" Margin="35,42,0,0" VerticalAlignment="Top" Width="165" Grid.Row="2"/>
-
-
-
-
-
-        <DataGrid x:Name="UserAccountDataGrid" HorizontalAlignment="Left" Height="288" Margin="10,85,0,0" VerticalAlignment="Top" Width="956" AutoGenerateColumns="True" TabIndex="3" HorizontalScrollBarVisibility="Auto" FontSize="18" Grid.Row="2" Grid.RowSpan="2" >
+        <Label Content="Account Manager" HorizontalAlignment="Left" Height="80" Margin="31,20,0,0" VerticalAlignment="Top" Width="520" FontWeight="Heavy" FontSize="50" Foreground="#2c3e50"/>
+        <Label Content="User List" HorizontalAlignment="Left" Height="55" Margin="35,42,0,0" VerticalAlignment="Top" Width="165" Grid.Row="2" Foreground="#2c3e50"/>
+        <DataGrid x:Name="UserAccountDataGrid" HorizontalAlignment="Left" Height="288" Margin="10,85,0,0" VerticalAlignment="Top" Width="956" AutoGenerateColumns="False" TabIndex="3" HorizontalScrollBarVisibility="Auto" FontSize="18" Grid.Row="2" Grid.RowSpan="2" Background="White" AlternatingRowBackground="#ecf0f1" Foreground="#2c3e50">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Member ID" Binding="{Binding MemberId}" Width="100" />
                 <DataGridTextColumn Header="Password" Binding="{Binding Password}" Width="180" />
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="200" />
                 <DataGridTextColumn Header="Full Name" Binding="{Binding FullName}" Width="200" />
-                <DataGridTextColumn Header="Role" Binding="{Binding Role}" Width="70" />
+                <DataGridTextColumn Header="Role" Binding="{Binding Role}" Width="100" />
             </DataGrid.Columns>
         </DataGrid>
-        <Rectangle HorizontalAlignment="Left" Height="95" Margin="39,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="1145" Fill="#ffff00" Grid.Row="1"/>
-        <Label Content="User Name" HorizontalAlignment="Left" Height="45" Margin="73,59,0,0" VerticalAlignment="Top" Width="107" Foreground="#ff4500" Grid.Row="1"/>
-        <TextBox x:Name="UserNameTextBox" HorizontalAlignment="Left" Height="45" Margin="193,55,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" TabIndex="0"  Grid.Row="1" TextChanged="UserNameTextBox_TextChanged" />
-        <Label Content="Email" HorizontalAlignment="Left" Height="45" Margin="514,59,0,0" VerticalAlignment="Top" Width="107" Foreground="#ff4500" Grid.Row="1"/>
-        <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Height="45" Margin="628,55,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" TabIndex="1"  Grid.Row="1" TextChanged="UserEmailTextBox_TextChanged"/>
-        <Button x:Name="SearchButtonBook" Content="Search" HorizontalAlignment="Left" Height="50" Margin="989,0,0,0" VerticalAlignment="Center" Width="165" TabIndex="2"  Grid.Row="1" />
-
-        <Button x:Name="CreateButton" Content="Create Book" HorizontalAlignment="Left" Height="50" Margin="1019,85,0,0" VerticalAlignment="Top" Width="165" TabIndex="4" Style="{StaticResource ButtonYellow}"  Grid.Row="2" Click="CreateButton_Click"  />
-
-        <Button x:Name="UpdateButton" Content="Update Book" HorizontalAlignment="Left" Height="50" Margin="1019,150,0,0" VerticalAlignment="Top" Width="165" TabIndex="5" Style="{StaticResource ButtonYellow}"  Grid.Row="2" Click="UpdateButton_Click"/>
-        <Button x:Name="DeleteButton" Content="Delete Book" HorizontalAlignment="Left" Height="50" Margin="1019,215,0,0" VerticalAlignment="Top" Width="165" TabIndex="6" Style="{StaticResource ButtonYellow}"  Grid.Row="2" Click="DeleteButton_Click" />
-        <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="50" Margin="1019,102,0,0" VerticalAlignment="Top" Width="165" TabIndex="7" Style="{StaticResource ButtonYellow}"  Grid.Row="3" />
-
-        <Button x:Name="CancelButton" Content="Close" HorizontalAlignment="Left" Height="50" Margin="1019,280,0,0" VerticalAlignment="Top" Width="165" TabIndex="6" Style="{StaticResource ButtonYellow}"  Grid.Row="2" Click="CancelButton_Click" Grid.RowSpan="2" />
+        <Rectangle HorizontalAlignment="Left" Height="95" Margin="39,0,0,0" VerticalAlignment="Center" Width="1145" Grid.Row="1" Fill="White" Stroke="#d1d9e6" StrokeThickness="1"/>
+        <Label Content="User Name" HorizontalAlignment="Left" Height="45" Margin="73,59,0,0" VerticalAlignment="Top" Width="107" Grid.Row="1" Foreground="#2c3e50"/>
+        <TextBox x:Name="UserNameTextBox" HorizontalAlignment="Left" Height="45" Margin="193,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="275" TabIndex="0" Grid.Row="1" TextChanged="UserNameTextBox_TextChanged" Padding="10,5" Background="#ecf0f1"/>
+        <Label Content="Email" HorizontalAlignment="Left" Height="45" Margin="514,59,0,0" VerticalAlignment="Top" Width="107" Grid.Row="1" Foreground="#2c3e50"/>
+        <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Height="45" Margin="628,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="275" TabIndex="1" Grid.Row="1" TextChanged="UserEmailTextBox_TextChanged" Padding="10,5" Background="#ecf0f1"/>
+        <Button x:Name="SearchButtonBook" Content="Search" HorizontalAlignment="Left" Height="50" Margin="989,0,0,0" VerticalAlignment="Center" Width="165" TabIndex="2" Grid.Row="1" Background="#3498db" Foreground="White" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="CreateButton" Content="Create Account" HorizontalAlignment="Left" Height="50" Margin="1019,85,0,0" VerticalAlignment="Top" Width="165" TabIndex="4" Grid.Row="2" Click="CreateButton_Click" Background="#2ecc71" Foreground="White" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="UpdateButton" Content="Update Account" HorizontalAlignment="Left" Height="50" Margin="1019,150,0,0" VerticalAlignment="Top" Width="165" TabIndex="5" Grid.Row="2" Click="UpdateButton_Click" Background="#f39c12" Foreground="White" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="DeleteButton" Content="Delete Account" HorizontalAlignment="Left" Height="50" Margin="1019,215,0,0" VerticalAlignment="Top" Width="165" TabIndex="6" Grid.Row="2" Click="DeleteButton_Click" Background="#e74c3c" Foreground="White" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="50" Margin="1019,102,0,0" VerticalAlignment="Top" Width="165" TabIndex="7" Grid.Row="3" Background="#95a5a6" Foreground="White" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="CancelButton" Content="Close" HorizontalAlignment="Left" Height="50" Margin="1019,280,0,0" VerticalAlignment="Top" Width="165" TabIndex="6" Grid.Row="2" Click="CancelButton_Click" Background="#34495e" Foreground="White" FontSize="16" FontWeight="Bold"/>
     </Grid>
 </Window>

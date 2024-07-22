@@ -4,41 +4,7 @@
              xmlns:local="clr-namespace:BookManagement_HoangNgocTrinh"
              StartupUri="LoginWindow.xaml">
     <Application.Resources>
-        <Style TargetType="Label">
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Foreground" Value="#FFFFFF" />
-            <!-- Màu trắng cho chữ -->
-            <Setter Property="FontSize" Value="18" />
-            <Setter Property="FontWeight" Value="Bold" />
-        </Style>
-
-        <Style TargetType="Button">
-            <Setter Property="Background" Value="#DC143C" />
-            <!-- Đỏ thắm -->
-            <Setter Property="Foreground" Value="#FFFFFF" />
-            <!-- Màu trắng cho chữ -->
-            <Setter Property="FontSize" Value="18" />
-            <Setter Property="FontWeight" Value="Bold" />
-        </Style>
-
-        <Style x:Key="ButtonYellow" TargetType="Button">
-            <Setter Property="Background" Value="#FFFF00" />
-            <!-- Màu vàng -->
-            <Setter Property="Foreground" Value="#DC143C" />
-            <!-- Đỏ thắm cho chữ -->
-            <Setter Property="FontSize" Value="18" />
-            <Setter Property="FontWeight" Value="ExtraBold" />
-        </Style>
-
-        <Style TargetType="TextBox">
-            <Setter Property="Background" Value="#FF4500" />
-            <!-- Cam đỏ -->
-            <Setter Property="Foreground" Value="#FFFFFF" />
-            <!-- Màu trắng cho chữ -->
-            <Setter Property="FontSize" Value="18" />
-            <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-        </Style>
+       
     </Application.Resources>
 
 </Application>

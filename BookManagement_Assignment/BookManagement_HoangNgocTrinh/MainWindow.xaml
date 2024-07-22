@@ -5,43 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookManagement_HoangNgocTrinh"
         mc:Ignorable="d"
-        Title="Book Manager - ver.24-SU" Height="685" Width="1220" Background="#ff2800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="BookMainWindow_Loaded" >
+        Title="Book Manager - ver.24-SU" Height="685" Width="1220" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="BookMainWindow_Loaded"
+        Background="#f0f4f8">
     <Grid>
-        <Label Content="Book Manager" HorizontalAlignment="Left" Height="80" Margin="31,20,0,0" VerticalAlignment="Top" Width="520" FontWeight="Heavy" FontSize="50"/>
-        <Label Content="ver. 24-SU" HorizontalAlignment="Left" Height="50" Margin="432,40,0,0" VerticalAlignment="Top" Width="275" FontSize="30"/>
-        <Label Content="Book List" HorizontalAlignment="Left" Height="55" Margin="35,274,0,0" VerticalAlignment="Top" Width="165"/>
-        <DataGrid x:Name="BookListDataGrid" HorizontalAlignment="Left" Height="289" Margin="39,320,0,0" VerticalAlignment="Top" Width="956" AutoGenerateColumns="False" TabIndex="3" HorizontalScrollBarVisibility="Auto" FontSize="18">
+        <Label Content="Book Manager" HorizontalAlignment="Left" Height="80" Margin="31,20,0,0" VerticalAlignment="Top" Width="520" FontWeight="Heavy" FontSize="50" Foreground="#2c3e50"/>
+        <Label Content="ver. 24-SU" HorizontalAlignment="Left" Height="50" Margin="432,40,0,0" VerticalAlignment="Top" Width="275" FontSize="30" Foreground="#2c3e50"/>
+        <Label Content="Book List" HorizontalAlignment="Left" Height="55" Margin="35,274,0,0" VerticalAlignment="Top" Width="165" Foreground="#2c3e50"/>
+        <DataGrid x:Name="BookListDataGrid" HorizontalAlignment="Left" Height="289" Margin="39,320,0,0" VerticalAlignment="Top" Width="956" AutoGenerateColumns="False" TabIndex="3" HorizontalScrollBarVisibility="Auto" FontSize="18" Background="White" AlternatingRowBackground="#ecf0f1" Foreground="#2c3e50">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding BookId}" Width="30" />
+                <DataGridTextColumn Header="ID" Binding="{Binding BookId}" Width="50" />
                 <DataGridTextColumn Header="Book Name" Binding="{Binding BookName}" Width="180" />
                 <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="200" />
-                <DataGridTextColumn Header="Publication Date" Binding="{Binding PublicationDate}" Width="70" />
+                <DataGridTextColumn Header="Publication Date" Binding="{Binding PublicationDate}" Width="100" />
                 <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="70" />
-                <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="30" />
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="70" />
                 <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="120" />
                 <DataGridTextColumn Header="Category ID" Binding="{Binding BookCategoryId}" Width="70" />
-                <DataGridTextColumn Header="Category Name" Binding="{Binding BookCategory.BookGenreType}" Width="70" />
+                <DataGridTextColumn Header="Category Name" Binding="{Binding BookCategory.BookGenreType}" Width="120" />
             </DataGrid.Columns>
         </DataGrid>
-        <Rectangle HorizontalAlignment="Center" Height="158" Margin="0,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="1144" Fill="#ffff00"/>
-        <Label Content="Book Name" HorizontalAlignment="Left" Height="45" Margin="64,131,0,0" VerticalAlignment="Top" Width="112" Foreground="#ff4500"/>
-        <TextBox x:Name="BookNameTextBox" HorizontalAlignment="Left" Height="44" Margin="216,126,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="274" TabIndex="0" TextChanged="BookNameTextBox_TextChanged"/>
-        <Label Content="Book Desc" HorizontalAlignment="Left" Height="45" Margin="512,131,0,0" VerticalAlignment="Top" Width="108" Foreground="#ff4500"/>
-        <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="45" Margin="626,127,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276" TabIndex="1" TextChanged="DescriptionTextBox_TextChanged"/>
-        <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Left" Height="50" Margin="988,123,0,0" VerticalAlignment="Top" Width="164" TabIndex="2" Click="SearchButton_Click"/>
+        <Rectangle HorizontalAlignment="Center" Height="158" Margin="0,101,0,0" VerticalAlignment="Top" Width="1144" Fill="White" Stroke="#d1d9e6" StrokeThickness="1"/>
+        <Label Content="Book Name" HorizontalAlignment="Left" Height="45" Margin="64,131,0,0" VerticalAlignment="Top" Width="112" Foreground="#2c3e50"/>
+        <TextBox x:Name="BookNameTextBox" HorizontalAlignment="Left" Height="44" Margin="216,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="274" TabIndex="0" Padding="10,5" Background="#ecf0f1" Foreground="#2c3e50"/>
+        <Label Content="Book Desc" HorizontalAlignment="Left" Height="45" Margin="512,131,0,0" VerticalAlignment="Top" Width="108" Foreground="#2c3e50"/>
+        <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="45" Margin="626,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="276" TabIndex="1" Padding="10,5" Background="#ecf0f1" Foreground="#2c3e50"/>
+        <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Left" Height="50" Margin="988,123,0,0" VerticalAlignment="Top" Width="164" TabIndex="2" Click="SearchButton_Click" Background="#3498db" Foreground="White" FontSize="16" FontWeight="Bold"/>
 
-        <Button x:Name="CreateButton" Content="Create Book" HorizontalAlignment="Left" Height="50" Margin="1019,339,0,0" VerticalAlignment="Top" Width="165" TabIndex="4" Style="{StaticResource ButtonYellow}" Click="CreateBookButton_Click" />
+        <Button x:Name="CreateButton" Content="Create Book" HorizontalAlignment="Left" Height="50" Margin="1019,339,0,0" VerticalAlignment="Top" Width="165" TabIndex="4" Click="CreateBookButton_Click" Background="#2ecc71" Foreground="White" FontSize="16" FontWeight="Bold"/>
 
-        <Button x:Name="UpdateButton" Content="Update Book" HorizontalAlignment="Left" Height="50" Margin="1019,394,0,0" VerticalAlignment="Top" Width="165" TabIndex="5" Style="{StaticResource ButtonYellow}" Click="UpdateButton_Click"/>
-        <Button x:Name="DeleteButton" Content="Delete Book" HorizontalAlignment="Left" Height="50" Margin="1019,449,0,0" VerticalAlignment="Top" Width="165" TabIndex="6" Style="{StaticResource ButtonYellow}" Click="DeleteButton_Click" />
-        <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="50" Margin="1019,504,0,0" VerticalAlignment="Top" Width="165" TabIndex="7" Style="{StaticResource ButtonYellow}" Click="QuitButton_Click" />
-        <Button x:Name="CreateCategory" Content="Create Category" HorizontalAlignment="Left" Height="47" Margin="1019,285,0,0" VerticalAlignment="Top" TabIndex="8" Width="165" Style="{StaticResource ButtonYellow}" Click="CreateCategory_Click"/>
-        <Label Content="© 2024 giáo.làng" HorizontalAlignment="Left" Height="45" Margin="34,611,0,0" VerticalAlignment="Top" Width="182" Foreground="#ffff00"/>
-        <Button x:Name="Logout" Content="Close" HorizontalAlignment="Left" Height="50" Margin="1019,559,0,0" VerticalAlignment="Top" Width="165" TabIndex="7" Style="{StaticResource ButtonYellow}" Click="LogoutButton_Click" />
-        <ComboBox x:Name="BookCategoryIdComboBox1" HorizontalAlignment="Left" Margin="216,202,0,0" VerticalAlignment="Top" Width="744" Height="35" SelectionChanged="BookCategoryIdComboBox1_SelectionChanged"/>
-        <Label Content="Filter by&#xD;&#xA;category" HorizontalAlignment="Left" Height="61" Margin="71,181,0,0" VerticalAlignment="Top" Width="93" Foreground="#ff4500"/>
-        <Button x:Name="ResetFilter" Content="ResetFilter" HorizontalAlignment="Left" Height="35" Margin="988,202,0,0" VerticalAlignment="Top" Width="164" TabIndex="2" Click="ResetFilterButton_Click"/>
-
-
+        <Button x:Name="UpdateButton" Content="Update Book" HorizontalAlignment="Left" Height="50" Margin="1019,394,0,0" VerticalAlignment="Top" Width="165" TabIndex="5" Click="UpdateButton_Click" Background="#f39c12" Foreground="White" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="DeleteButton" Content="Delete Book" HorizontalAlignment="Left" Height="50" Margin="1019,449,0,0" VerticalAlignment="Top" Width="165" TabIndex="6" Click="DeleteButton_Click" Background="#e74c3c" Foreground="White" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="50" Margin="1019,504,0,0" VerticalAlignment="Top" Width="165" TabIndex="7" Click="QuitButton_Click" Background="#95a5a6" Foreground="White" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="CreateCategory" Content="Create Category" HorizontalAlignment="Left" Height="47" Margin="1019,285,0,0" VerticalAlignment="Top" TabIndex="8" Width="165" Click="CreateCategory_Click" Background="#9b59b6" Foreground="White" FontSize="16" FontWeight="Bold"/>
+        <Label Content="© 2024 giáo.làng" HorizontalAlignment="Left" Height="45" Margin="34,611,0,0" VerticalAlignment="Top" Width="182" Foreground="#95a5a6"/>
+        <Button x:Name="Logout" Content="Close" HorizontalAlignment="Left" Height="50" Margin="1019,559,0,0" VerticalAlignment="Top" Width="165" TabIndex="7" Click="LogoutButton_Click" Background="#34495e" Foreground="White" FontSize="16" FontWeight="Bold"/>
+        <ComboBox x:Name="BookCategoryIdComboBox1" HorizontalAlignment="Left" Margin="216,202,0,0" VerticalAlignment="Top" Width="744" Height="35" SelectionChanged="BookCategoryIdComboBox1_SelectionChanged" Background="#ecf0f1" Foreground="#2c3e50"/>
+        <Label Content="Filter by Category" HorizontalAlignment="Left" Height="61" Margin="71,181,0,0" VerticalAlignment="Top" Width="125" Foreground="#2c3e50"/>
+        <Button x:Name="ResetFilter" Content="Reset Filter" HorizontalAlignment="Left" Height="35" Margin="988,202,0,0" VerticalAlignment="Top" Width="164" TabIndex="2" Click="ResetFilterButton_Click" Background="#3498db" Foreground="White" FontSize="16" FontWeight="Bold"/>
     </Grid>
 </Window>
