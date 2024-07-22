@@ -42,7 +42,7 @@ namespace BookManagement_HoangNgocTrinh
         private void ManageAccountButton_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            WindowUser main = new();
+            WindowUser main = new(_userRole);
             main.ShowDialog();
             this.Show();
 

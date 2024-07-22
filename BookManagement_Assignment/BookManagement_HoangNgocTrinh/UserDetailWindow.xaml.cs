@@ -37,6 +37,13 @@ namespace PE
 
         private void UserDetailWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            var roleMapping = new Dictionary<int, string>
+    {
+        { 3, "Customer" },
+        { 2, "Staff" },
+        { 1, "Admin" }
+    };
+            
             var priceList = new List<string> { "Customer", "Staff", "Admin" };
             UserRoleComboBox.ItemsSource = priceList;
             WindowModeLabel.Content = "Add New  User";
@@ -53,6 +60,7 @@ namespace PE
                 UserRoleComboBox.SelectedValue = SelecteAccount.Role.ToString();
                 // quan trọng , nếu kh mọi cuốn sách edit đều về
                 // category  đầu tiên 1-fiction type
+                UserRoleComboBox.SelectedValue = roleMapping.ContainsKey(SelecteAccount.Role) ? roleMapping[SelecteAccount.Role] : null;
             }
            
 
@@ -66,6 +74,16 @@ namespace PE
                 string.IsNullOrWhiteSpace(UserRoleComboBox.Text))
             {
                 System.Windows.MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (!EmailTextBox.Text.EndsWith("@bookstore.com"))
+            {
+                System.Windows.MessageBox.Show("Email must be in the format of '@bookstore.com'.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (FullNameTextBox.Text.Length < 5 || !char.IsUpper(FullNameTextBox.Text[0]))
+            {
+                System.Windows.MessageBox.Show("Full name must start with an uppercase letter and be at least 5 characters long.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -109,7 +127,7 @@ namespace PE
                 }
                 userService.CreateUser(user);
             }
-            WindowUser main = new WindowUser();
+            WindowUser main = new WindowUser(SelecteAccount.Role);
             main.Show();
             this.Close();
             System.Windows.MessageBox.Show("User saved successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);

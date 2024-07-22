@@ -24,10 +24,11 @@ namespace PE
     {
 
         UserService userService = new();
-        public WindowUser()
+        private int role;
+        public WindowUser(int role)
         {
             InitializeComponent();
-
+            this.role = role;
         }
 
         private void UserAccountDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -37,6 +38,11 @@ namespace PE
 
         private void UserMainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            if(role != 1) {
+                CreateButton.IsEnabled = false;
+                DeleteButton.IsEnabled = false;
+                UpdateButton.IsEnabled = false;
+            }
             Load_Grid();
         }
         private void Load_Grid()
