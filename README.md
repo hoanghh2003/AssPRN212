@@ -7,7 +7,7 @@
 - [Team Member Assignment Table](#team-member-assignment-table)
 
 ## Project Description
-ManageBook is a book management application designed to help users easily manage their book collections. The application allows users to add, edit, delete, and search for book information efficiently. Additionally, it supports tracking borrowing/returning statuses and managing borrower information.
+ManageBook is a book management application designed to help users easily manage their book collections. The application allows users to add, edit, delete, and search for book information efficiently.
 
 ## Major Features (Epics)
 
