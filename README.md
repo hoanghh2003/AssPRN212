@@ -12,7 +12,7 @@ ManageBook is a book management application designed to help users easily manage
 ## Major Features (Epics)
 
 1. **User Role Management**:
-   - **Admin**: Complete CRUD screens for tables (e.g., CRUD Book, CRUD Category) with validation.
+   - **Admin**: Complete CRUD screens for tables (e.g., CRUD Book, CRUD Category) with validation and manage account.
    - **Staff**: Only view and search capabilities.
    - **Member**: You have no permission to access.
 
